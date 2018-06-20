@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22px"
+        android:background="@color/transparent">
+        <ImageView
+            android:id="@+id/oneimage"
+            android:layout_width="48px"
+            android:layout_height="48px"
+            android:src="@mipmap/close"
+            android:layout_alignParentRight="true"/>
+          <RelativeLayout
+           android:layout_below="@+id/oneimage"
+            android:layout_toLeftOf="@+id/oneimage"
+            android:id="@+id/lr_user"
+            android:layout_width="630px"
+            android:layout_height="720px"
+            android:background="@mipmap/dialogbackground"
+            >
+
+            <ImageView
+                android:id="@+id/user_ewm"
+                android:layout_width="338px"
+                android:layout_height="338px"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                  />
+              <TextView
+                  android:layout_below="@+id/user_ewm"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_marginTop="50px"
+                  android:text="扫一扫上面的二维码图案"
+                  android:textSize="24px"
+                  android:textColor="#898989"/>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

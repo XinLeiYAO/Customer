@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+ >
+
+    <include layout="@layout/include_header_btn_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="30px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="24px"
+        android:paddingRight="24px">
+
+        <TextView
+            android:id="@+id/tv_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <EditText
+            android:id="@+id/et_upd_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40px"
+            android:background="@null"
+            android:textColor="@color/colorBlackLight"
+            android:textColorHint="@color/colorGrayLight"
+            android:textSize="@dimen/text_size_l" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimary" />
+
+</LinearLayout>

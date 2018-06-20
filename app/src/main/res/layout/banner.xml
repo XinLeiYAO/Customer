@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.stx.xhb.xbanner.XBanner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="420px"
+        android:layout_marginBottom="24px"
+        app:AutoPlayTime="3000"
+        app:isShowIndicatorOnlyOne="true"
+        app:pageChangeDuration="800"
+        app:pointNormal="@drawable/shape_point_normal"
+        app:pointSelect="@drawable/shape_point_selector"
+        app:pointsContainerBackground="@color/iv_selector"
+        app:pointsPosition="RIGHT"
+        app:pointsVisibility="true"
+        app:tipTextSize="@dimen/text_size_m"
+        tools:layout_editor_absoluteX="16px"
+        tools:layout_editor_absoluteY="0dp" />
+
+</LinearLayout>

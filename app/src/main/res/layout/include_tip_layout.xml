@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24px">
+
+    <ImageView
+        android:id="@+id/iv_red_tip"
+        android:layout_width="28px"
+        android:layout_height="28px"
+        android:src="@mipmap/hint_red_icon" />
+
+    <TextView
+        android:id="@+id/tv_red_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10px"
+        android:layout_toRightOf="@+id/iv_red_tip"
+        android:text="提示：为了您的账号安全，请不要使用连续和相同数字设定密码；密码支持六位以上字符。"
+        android:textColor="@color/colorRedLight"
+        android:textSize="@dimen/text_size_s" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="350px"
+    android:padding="10px">
+
+
+    <ImageView
+        android:id="@+id/find_image"
+        android:layout_width="match_parent"
+        android:layout_height="500px"
+        android:scaleType="fitXY"
+        android:src="@mipmap/aaa"/>
+    <!--<TextView-->
+        <!--android:id="@+id/find_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="1"-->
+        <!--android:textSize="36px"-->
+        <!--android:paddingLeft="20px"-->
+        <!--android:paddingRight="20px"-->
+        <!--android:layout_margin="40px"-->
+        <!--android:background="@color/colorRed"/>-->
+    <TextView
+        android:id="@+id/find_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="safs打算擦拭擦c"
+        android:textSize="30px"
+
+        android:layout_alignParentBottom="true"
+        android:padding="10px"
+        android:textColor="@color/colorhei"
+        android:background="#00000000"
+        android:layout_above="@+id/find_image"/>
+</RelativeLayout>

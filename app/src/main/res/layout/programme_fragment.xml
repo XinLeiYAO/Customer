@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/include_header_layout_kehu"></include>
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="#459fe4" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="推荐方案"
+            android:textColor="#595757"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/See_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="查看更多"
+            android:textColor="#459fe4"
+            android:textSize="28px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24px"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+
+        <ImageView
+            android:id="@+id/excellent_one"
+            android:layout_width="0px"
+            android:layout_height="200px"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/zanwei"
+             />
+
+        <ImageView
+            android:id="@+id/excellent_two"
+            android:layout_width="0px"
+            android:layout_height="200px"
+            android:layout_marginLeft="24px"
+            android:layout_weight="1"
+            android:src="@mipmap/zanwei"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="@color/image_overlay_false" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="#459fe4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="设计图"
+            android:textColor="#595757"
+            android:textSize="30px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+
+            android:textColor="#459fe4"
+            android:textSize="28px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24px"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/first_draft"
+            android:layout_width="0px"
+            android:layout_height="200px"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/zanwei"
+       />
+
+        <ImageView
+            android:id="@+id/Color_flat"
+            android:layout_width="0px"
+            android:layout_height="200px"
+            android:layout_marginLeft="24px"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@mipmap/zanwei"
+       />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="#459fe4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="设计说明"
+            android:textColor="#595757"
+            android:textSize="30px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+
+            android:textColor="#459fe4"
+            android:textSize="28px" />
+    </LinearLayout>
+    <TextView
+        android:paddingRight="24px"
+        android:lineSpacingExtra="5px"
+        android:id="@+id/DesignDescription"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30px"
+     />
+</LinearLayout>

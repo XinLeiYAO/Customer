@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorGrayDark">#727171</color>
+    <color name="colorWhite">#fff</color>
+
+    <color name="colorLine">#dcdcdc</color>
+    <color name="colorBlackLight">#595757</color>
+    <color name="colorBG">#f4f3f9</color>
+    <color name="colorGray">#9fa0a0</color>
+    <color name="colorFind">#F4F3F9</color>
+    <color name="colorline">#DDDDDD</color>
+    <color name="colorRed">#f00</color>
+    <color name="colorred">#FF4040</color>
+    <color name="textgreytwo">#9fa0a0</color>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="colorBlueLight">#67bbef</color>
+
+    <color name="colorRedLight">#ef434f</color>
+    <color name="colorBlack">#00a0ea</color>
+    <color name="colorhei">#000</color>
+    <color name="timepicker_line">#e8e8e8</color>
+    <color name="colorThe_dark">#9fa0a0</color>
+    <color name="image_overlay_false">#20000000</color>
+    <color name="colordark_the">#888888</color>
+    <color name="cor666">#898989</color>
+    <color name="iv_selector">#66000000</color>
+    <color name="calca">#0044C4</color>
+    <color name="clogin">#2C487D</color>
+    <color name="colorlogin">#DFE6ED</color>
+
+    <color name="colorGrayLight">#c9c9c9</color>
+</resources>

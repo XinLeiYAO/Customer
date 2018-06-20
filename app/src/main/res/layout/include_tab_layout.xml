@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="98px"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_home"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_tab_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_home"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="@string/home"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_wallet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_wallet"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_tab_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_wallet"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="@string/more"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_find"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_find"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_tab_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_find"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="@string/find"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_mine"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_tab_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_mine"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="@string/mine"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

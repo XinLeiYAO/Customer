@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">客户</string>
+    <string name="loading">加载中...</string>
+    <string name="home">首页</string>
+    <string name="more">更多</string>
+    <string name="find">发现</string>
+    <string name="mine">我</string>
+    <string name="msg">通知</string>
+    <string name="setting">设置</string>
+    <string name="exit">退出登录</string>
+    <string name="add">添加</string>
+    <string name="upd_password">修改密码</string>
+    <string name="rx_group">瑞祥集团</string>
+    <string name="app_Helpgroup">App帮组中心</string>
+    <string name="suggest_and_complain">投诉与建议</string>
+    <string name="version">版本</string>
+    <string name="mobile_phone">手机</string>
+    <string name="mailbox">邮箱</string>
+    <string name="wechat">微信</string>
+    <string name="qr_code">我的二维码</string>
+    <string name="head_portrait">头像</string>
+    <string name="default_information">请输入建议或着投诉信息</string>
+    <string name="login_phone">手机号</string>
+    <string name="login_phonehint">请输入手机号</string>
+    <string name="login_verifycode">验证码</string>
+    <string name="login_verifycodehint">请输入验证码</string>
+    <string name="login_verifycodeget">获取验证码</string>
+    <string name="login_pwd">密 码</string>
+    <string name="login_pwdhint">请输入密码</string>
+    <string name="nickname">昵称</string>
+    <string name="login_nickname">请输入昵称</string>
+    <string name="scan_text">扫一扫</string>
+    <string name="verification_code_login">忘记密码</string>
+    <string name="login">登陆</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="confirm">确定</string>
+    <string name="please_input_password_again">请再次输入密码</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="read_and_agree">我已阅读并同意</string>
+    <string name="user_agreement">《用户协议》</string>
+    <string name="description">设计说明</string>
+    <string name="stringValue1">基本信息</string>
+    <string name="stringValue2">房屋状况</string>
+    <string name="stringValue3">
+	</string>
+    <string name="stringValue4">免  租  期</string>
+    <string name="stringValue5">使用面积</string>
+    <string name="stringValue6">建筑面积</string>
+    <string name="stringValue7">预估金额</string>
+    <string name="stringValue8">装修时间</string>
+    <string name="stringValue9">风水要求</string>
+    <string name="stringValue10">家具软装</string>
+    <string name="stringValue11">智能弱电</string>
+    <string name="stringValue12">物业信息</string>
+    <string name="stringValue13">电梯使用情况</string>
+    <string name="stringValue14">保护材料</string>
+    <string name="stringValue15">施工时间</string>
+    <string name="stringValue16">指定空调公司</string>
+    <string name="stringValue17">指定消防公司</string>
+    <string name="stringValue18">工程一切要求</string>
+    <string name="stringValue19">指定垃圾外运公司</string>
+    <string name="stringValue20">报审蓝图</string>
+    <string name="stringValue21">资质要求</string>
+    <string name="stringValue22">空调消防维保工位</string>
+    <string name="stringValue23">图纸审核</string>
+    <string name="stringValue24">照片</string>
+    <string name="stringValue25"></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="phone_num">手机号</string>
+    <string name="please_input_phone_num">请输入手机号</string>
+    <string name="verification_code">验证码</string>
+    <string name="please_input_verification_code">请输入验证码</string>
+    <string name="get_verification_code">获取验证码</string>
+    <string name="new_password">新密码</string>
+    <string name="please_input_suggest_and_complain">请输入投诉或建议信息...</string>
+
+
+    <string name="head_photo">头像</string>
+    <string name="name">姓名</string>
+    <string name="gender">性别</string>
+    <string name="age">年龄</string>
+    <string name="birthday">生日</string>
+    <string name="phone">电话</string>
+    <string name="area">地区</string>
+</resources>

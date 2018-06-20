@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="430px"
+        app:srcCompat="@mipmap/customer"
+        android:scaleType="fitXY"/>
+    <RelativeLayout
+        android:id="@+id/rl_phone_num"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/iv_logo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/iv_phone_icon"
+            android:layout_width="54px"
+            android:layout_height="54px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@mipmap/phone_icon" />
+
+        <TextView
+            android:id="@+id/tv_phone_text"
+            android:layout_width="130px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@id/iv_phone_icon"
+            android:text="@string/login_phone"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <EditText
+            android:id="@+id/et_phone_num"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_phone_text"
+            android:background="@null"
+            android:hint="@string/login_phonehint"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColor="@color/colorBlackLight"
+            android:textColorHint="@color/colorGray"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_phone_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/account_down_arrow_icon" />
+
+        <TextView
+            android:id="@+id/tv_old_password_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_password"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@id/rl_phone_num">
+
+        <ImageView
+            android:id="@+id/iv_password_icon"
+            android:layout_width="54px"
+            android:layout_height="54px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@mipmap/password_icon" />
+
+        <TextView
+            android:id="@+id/tv_password_text"
+            android:layout_width="130px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@id/iv_password_icon"
+            android:text="@string/login_pwd"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_password_text"
+            android:background="@null"
+            android:hint="@string/login_pwdhint"
+            android:inputType="textPassword"
+            android:textColor="@color/colorBlackLight"
+            android:textColorHint="@color/colorGray"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_password_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_forget_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_password"
+        android:padding="20px">
+
+        <TextView
+            android:id="@+id/tv_verification_code_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verification_code_login"
+            android:textColor="@color/colorBlueLight"
+            android:textSize="20px"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/scan_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/scan_text"
+            android:textColor="@color/colorBlueLight"
+            android:textSize="20px" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/page_margin_sm"
+        android:layout_marginRight="@dimen/page_margin_sm"
+        android:layout_marginTop="60px"
+        android:background="@color/colorred"
+        android:padding="10dp"
+        android:text="激活"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_l6"/>
+</LinearLayout>

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.asus.customer.fragment.HeTongFragment">
+
+    <include layout="@layout/include_header_layout_kehu" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="33px"
+
+                    android:background="@color/colorBlack" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10px"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="合同信息"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="付款比例"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/bili_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="74px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择付款比例"
+                    android:textColor="@color/colorGray"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="合同签订"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/data_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="74px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择日期"
+                    android:textColor="@color/colorGray"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="工期(天)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/day_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="83px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="23px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="33px"
+                    android:background="@color/colorBlack" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10px"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="物业信息"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="施工时间"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/shigongday_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="74px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择施工时间"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/v_pname"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="区域保护"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/place_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="74px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="报审蓝图"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/lantu_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="74px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="审核周期(天)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/shenhe_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="32px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/v_area"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="管理费(元)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/guanlimoney_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="60px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="押金(元)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/yajinmoney_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="82px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="水电费(元)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/watermoney_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="60px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="泄水费(元)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/xiemoney_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="60px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="空调"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/kongtiao_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="132px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="消防"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/xiaofang_tv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="132px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="工程一切险(元)"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_m" />
+
+                <EditText
+                    android:id="@+id/xianmoney_et"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="18px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorGrayDark"
+                    android:textColorHint="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

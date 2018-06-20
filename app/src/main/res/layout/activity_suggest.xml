@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+>
+
+<include layout="@layout/include_header_layout"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:enabled="true"
+            android:gravity="top"
+            android:hint="@string/please_input_suggest_and_complain"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:minLines="8"
+            android:padding="24px"
+            android:scrollbars="vertical"
+            android:textColorHint="@color/colorGray"
+            android:textSize="@dimen/text_size_m"></EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLine" />
+
+        <GridView
+            android:id="@+id/gv_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="24px"
+            android:numColumns="3"
+            android:padding="24px"
+            android:verticalSpacing="24px"></GridView>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a0ea"
+            android:layout_alignParentBottom="true"
+            android:text="提交"/>
+    </RelativeLayout>
+
+</LinearLayout>
