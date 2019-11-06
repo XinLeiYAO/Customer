@@ -39,7 +39,7 @@ public class PrefUtils
         boolean result = editor.commit();
         if (!result)
         {
-            Log.e("移除Shared", "save " + key + " failed");
+//            Log.e("移除Shared", "save " + key + " failed");
         }
     }
 

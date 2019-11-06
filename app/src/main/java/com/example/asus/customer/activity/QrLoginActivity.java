@@ -2,6 +2,7 @@ package com.example.asus.customer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -75,10 +76,11 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     @OnClick({R.id.qr_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-
             case R.id.qr_login:
+            String appid=  getIntent().getStringExtra("appid");
+                String pawwword = PrefUtils.getValue(QrLoginActivity.this, Constants.MIMA);
+                String cardNo = PrefUtils.getValue(this, Constants.PHOME);
 
-                String pawwword = PrefUtils.getValue(QrLoginActivity.this, Constants.PASSWORD);
                 mPresenter.getRrLogin(cardNo, pawwword, appid);
                 break;
         }
@@ -102,8 +104,8 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     @Override
     public void getRrLoginData(CheckInfo checkInfo) {
         if (checkInfo.getStatusCode() == 0) {
-            startActivity(new Intent(QrLoginActivity.this, NjjActivity.class));
             App.getApp().finishSingleActivity(NjjActivity.class);
+            startActivity(new Intent(QrLoginActivity.this, NjjActivity.class));
             finish();
         } else {
             showToast(checkInfo.getStatusMsg());

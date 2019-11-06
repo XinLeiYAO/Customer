@@ -11,12 +11,17 @@ import com.example.asus.customer.commons.App;
 import com.example.asus.customer.commons.Constants;
 import com.example.asus.customer.commons.base.BaseActivity;
 import com.example.asus.customer.commons.utils.PrefUtils;
+import com.example.asus.customer.entity.ImgBean;
+import com.example.asus.customer.entity.OSSBean;
 import com.example.asus.customer.mvp.contract.UpdUserInfoContract;
 import com.example.asus.customer.mvp.presenter.UpdUserInfoPresenter;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 
+/**
+ * 更新用户信息
+ */
 public class UpdUserInfoActivity extends BaseActivity<UpdUserInfoPresenter> implements UpdUserInfoContract.View {
 
     @Bind(R.id.tv_title)
@@ -51,7 +56,7 @@ public class UpdUserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impl
     }
 
     private void initTitle() {
-        tvTitle.setText("修改" + keyValue);
+        tvTitle.setText("昵称");
     }
 
     private void initUpdData() {
@@ -83,8 +88,11 @@ public class UpdUserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impl
                     showToast("修改内容不能与原内容相同");
                     return;
                 }
+                String cardNo = PrefUtils.getValue(this, Constants.PHOME);
+                String token = PrefUtils.getValue(this, Constants.PASSWORD);
+
                 //修改用户信息
-                mPresenter.updateUserInfo(App.tokenInfo.getToken(),App.tokenInfo.getCardNo(), key, updContent);
+                mPresenter.updateUserInfo(token,cardNo, key, updContent);
                 break;
                 default:
                     break;
@@ -94,7 +102,6 @@ public class UpdUserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impl
     @Override
     public void responseUpdateData() {
         showToast("修改成功");
-
         finish();
     }
 
@@ -130,5 +137,15 @@ public class UpdUserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impl
     @Override
     public void hideDialog() {
         dismissLoading();
+    }
+
+    @Override
+    public void OssData(OSSBean ossBean) {
+
+    }
+
+    @Override
+    public void imageIconData(ImgBean imgBean) {
+
     }
 }

@@ -62,23 +62,23 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:layout_weight="1.7"
                     android:layout_width="0px"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1.7"
                     android:paddingLeft="26px"
                     android:text="房屋状况 "
-                    android:textSize="30px"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/housing_Situation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
 
-                    android:textSize="30px"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -95,21 +95,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="免  租  期"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Rent_period"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -122,23 +122,23 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:layout_weight="1.7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30px"
+                    android:layout_weight="1.7"
                     android:paddingLeft="26px"
                     android:text="使用面积"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Areause"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30px"
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -154,50 +154,50 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="建筑面积"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Builtarea"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30px"
+                android:layout_marginLeft="24px"
                 android:layout_marginTop="20px"
                 android:orientation="horizontal"
-                android:layout_marginLeft="24px"
                 android:weightSum="4">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="预估金额"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Estimatedamount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30px"
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -214,22 +214,22 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="装修时间"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
-                    android:layout_width="0dp"
                     android:id="@+id/Decorationtime"
-
-
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
 
-                    android:textSize="30px"
+
+                    android:layout_weight="2.3"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -242,24 +242,24 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
                     android:paddingLeft="26px"
                     android:text="风水要求"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Geomanticrequirements"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -276,21 +276,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="家具软装"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Softfurnishings"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
 
-                    android:textSize="30px"
+                    android:layout_weight="2.3"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -307,21 +307,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="智能弱电"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Intelligentelectricity"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <View
@@ -350,7 +350,7 @@
                     android:layout_marginLeft="12px"
                     android:text="物业信息"
                     android:textColor="#595757"
-                    android:textSize="36px"  />
+                    android:textSize="36px" />
             </LinearLayout>
 
             <View
@@ -371,21 +371,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="电梯使用情况"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Useelevator"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
-                    android:textSize="30px"
 
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -398,23 +398,23 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-
                     android:paddingLeft="26px"
+
                     android:text="保护材料"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
                     android:id="@+id/Protectivematerial"
-                    android:layout_weight="2.3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textSize="30px"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -430,21 +430,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="施工时间"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Constructiontime"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="2.3"
                     android:gravity="left"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -460,20 +460,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="指定空调公司"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
                     android:id="@+id/Designatedcompany"
-                    android:layout_weight="2.3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30px"
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -486,24 +486,24 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-
                     android:paddingLeft="26px"
+
                     android:text="指定消防公司"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Designatedcontrocompany"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -520,20 +520,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="工程一切险要求"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Allrequirementsproject"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="2.3"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -546,23 +546,23 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
                     android:paddingLeft="26px"
                     android:text="指定垃圾外运公司"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:textSize="30px"
-                    android:layout_weight="2.3"
                     android:id="@+id/Designatedtransportationcompany"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
                     android:gravity="left"
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -575,26 +575,26 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-
                     android:paddingLeft="26px"
+
                     android:text="报审蓝图"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:textSize="30px"
-                    android:layout_weight="2.3"
                     android:id="@+id/Blueprint"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="2.3"
 
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -607,26 +607,26 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-
                     android:paddingLeft="26px"
+
                     android:text="资质要求"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:textSize="30px"
-                    android:layout_weight="2.3"
                     android:id="@+id/Qualificationrequirements"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
 
                     android:gravity="left"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -639,25 +639,25 @@
                 android:weightSum="4">
 
                 <TextView
-                    android:textSize="30px"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-
                     android:paddingLeft="26px"
+
                     android:text="空调消防维保单位"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/AirrotectionStation"
                     android:layout_width="0dp"
-                    android:textSize="30px"
                     android:layout_height="wrap_content"
-
+                    android:layout_weight="2.3"
                     android:gravity="left"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <LinearLayout
@@ -673,21 +673,21 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.7"
-                    android:textSize="30px"
                     android:paddingLeft="26px"
                     android:text="图纸审核"
-                    android:textColor="@color/colorThe_dark" />
+                    android:textColor="@color/colorThe_dark"
+                    android:textSize="30px" />
 
                 <TextView
-                    android:layout_weight="2.3"
                     android:id="@+id/Drawingaudit"
                     android:layout_width="0dp"
-
                     android:layout_height="wrap_content"
 
-                    android:textSize="30px"
+                    android:layout_weight="2.3"
+
                     android:text="无"
-                    android:textColor="@color/colorBlackLight" />
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="30px" />
             </LinearLayout>
 
             <View
@@ -725,12 +725,12 @@
                 android:background="@color/timepicker_line"></View>
 
             <android.support.v7.widget.RecyclerView
-                android:layout_weight="1"
                 android:id="@+id/Volumephoto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="24px"
-                android:layout_marginRight="24px"></android.support.v7.widget.RecyclerView>
+                android:layout_marginRight="24px"
+                android:layout_weight="1"></android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
     </ScrollView>

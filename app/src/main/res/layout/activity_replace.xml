@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ReplaceActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/public_title_layout" />
+
+    <LinearLayout
+        android:layout_marginLeft="72px"
+        android:layout_marginTop="89px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28px"
+            android:text="手机号"
+            android:textColor="#838383"/>
+
+        <TextView
+            android:id="@+id/mEtPhone"
+            android:layout_marginLeft="46px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textSize="28px"
+            android:textColor="#838383"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="72px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="86px"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28px"
+            android:text="密码"
+            android:textColor="#333333"/>
+
+        <EditText
+            android:id="@+id/mEtPassWord"
+            android:layout_marginTop="87px"
+            android:layout_marginLeft="74px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="11"
+            android:background="@null"
+            android:textSize="24px"
+            android:password="true"
+            android:textColor="#d2d3d3"
+            android:hint="输入密码"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="36px"
+        android:layout_marginTop="36px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ededed"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260px">
+
+        <Button
+            android:id="@+id/mBtnNewPhone"
+            android:layout_marginLeft="72px"
+            android:layout_marginRight="72px"
+            android:layout_width="match_parent"
+            android:layout_height="98px"
+            android:text="请填写新的手机号"
+            android:textSize="36px"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape_btn_newphone"/>
+    </LinearLayout>
+</LinearLayout>

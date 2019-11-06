@@ -20,4 +20,12 @@ public class NjjModel implements NjjContract.Model {
                 .getProjectStatus(rwdid)
                 .compose(RxSchedulers.<String>switchThread());
     }
+
+    @Override
+    public Observable<String> getLoginTime(String rwdid) {
+        return ApiEngine.getInstance().getGZSApiService()
+                .getLoginTime(rwdid)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
 }

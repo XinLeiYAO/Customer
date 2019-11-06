@@ -45,14 +45,13 @@ public class SuggestPresenter extends SuggestContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG, "投诉失败 = " + e.toString());
+//                        Log.e(TAG, "投诉失败 = " + e.toString());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
                        // SubInfo info = JSONUtils.toObject(s,SubInfo.class);
-                        Log.e("tag",s);
                         try {
                             JSONObject jsonObject=new JSONObject(s);
                             int statusCode = jsonObject.getInt("StatusCode");

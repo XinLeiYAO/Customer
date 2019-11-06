@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.KeHuMessageNewActivity">
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <LinearLayout
+        android:id="@+id/lin_erro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:src="@mipmap/kehu_home_wuneirong" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:text="客官莫急，设计师会尽快赶来为您量房"
+            android:textColor="#838383"
+            android:textSize="30px" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/kehuMessage_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="@color/colorBG"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:id="@+id/layoutLiangfang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginRight="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/liangfang_rhmcx"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="入户门朝向："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_ydmpz"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="原地面平整： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_htmkg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="货梯门宽高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_fkzdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="风口最低点： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_qdx"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="强电箱： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_rdx"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="弱电箱："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_ydmg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="原顶面高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_zlxg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="主梁下高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_clxg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="次梁下高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_plzdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="喷淋最低点："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_chg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="窗户高： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_ctg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="窗台高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_chlx"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="窗户类型： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_cg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="层高："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_mdgd"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="门洞高度："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_sxs"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="上下水："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/liangfang_dmgc"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="地面高差："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutWuye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/wuye_wygs"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="物业公司： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_wydh"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="物业电话："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_zzyq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="资质要求："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_bhcl"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="保护材料： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_dtsy"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="电梯使用： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_sgsj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="施工时间： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_ktvbdw"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="空调维保单位： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_ljysfs"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="垃圾运输方式："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_wyglf"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="物业管理费： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_wyyj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="物业押金："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_sdfy"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="水电费用："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_clfhdj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="材料防火等级："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_zdbxgs"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="指定保险公司："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_gcyqxyq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="工程一切险要求："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_xfwbdw"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="消防维保单位： "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/wuye_wysgyq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="物业施工要求: "
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutQiye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/qiye_qc"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="全称："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/qiye_lx"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="类型："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/qiye_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="成立："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/qiye_dw"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="定位："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFangwu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/fangwu_xz"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="现状："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/fangwu_mj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="面积："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/fangwu_dz"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="量房地址："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutSheji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sheji_fsxq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="风水需求："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/sheji_yxfg"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="意向风格："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/sheji_jssjf"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="接受设计费： "
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/sheji_sjqf"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="设计取费："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutShiGong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/shigong_yjkysj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="预计开业时间："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/shigong_jhkgsj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="计划开工时间："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/shigong_jtkgsj"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="具体开工时间："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/shigong_yjgq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="预计工期："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/shigong_hbyq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="环保要求："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/shigong_zxys"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="装修预算："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/shigong_zb"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="招标："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutXvqiu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/xvqiu_zxmd"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="装修目的："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/xvqiu_rdxq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="弱电需求："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/xvqiu_xfxq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="消防需求："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+                <TextView
+                    android:id="@+id/xvqiu_jjxq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="家具需求："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/xvqiu_ktgz"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="空调改造："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/xvqiu_zdpp"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="指定品牌："
+                    android:textSize="26px" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+                <TextView
+                    android:id="@+id/xvqiu_zxxq"
+                    android:layout_width="match_parent"
+                    android:layout_height="64px"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical"
+                    android:text="装修需求："
+                    android:textSize="26px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginTop="5px"
+                    android:background="@color/colorBG" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

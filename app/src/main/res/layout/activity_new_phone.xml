@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NewPhoneActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/public_title_layout" />
+
+
+    <LinearLayout
+
+        android:layout_marginLeft="72px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号"
+            android:textColor="#333333"
+            android:textSize="28px" />
+
+        <EditText
+            android:id="@+id/mEditPhone"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="46px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="110px"
+            android:maxLength="11"
+            android:background="@null"
+            android:textSize="28px"
+            android:inputType="number"
+            android:hint="输入手机号"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="36px"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="36px"
+        android:layout_height="1px"
+        android:background="#ededed"/>
+
+    <LinearLayout
+
+        android:layout_marginLeft="72px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginTop="40px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码"
+            android:textSize="28px"
+            android:textColor="#333333"/>
+
+        <EditText
+            android:id="@+id/mEditRandom"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="41px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="110px"
+            android:maxLength="11"
+            android:background="@null"
+            android:textSize="28px"
+            android:phoneNumber="true"
+            android:hint="请输入验证码"/>
+
+        <View
+            android:layout_marginTop="32px"
+            android:layout_marginLeft="25px"
+            android:layout_width="1px"
+            android:layout_height="40px"
+            android:background="#e1e1e1"/>
+
+        <TextView
+            android:layout_marginTop="40px"
+            android:id="@+id/mTextViewRandom"
+            android:layout_marginLeft="30px"
+            android:textColor="#00a0ea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24px"
+            android:text="验证码"/>
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="36px"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="36px"
+        android:layout_marginRight="36px"
+        android:layout_height="1px"
+        android:background="#e1e1e1"/>
+
+    <LinearLayout
+        android:layout_marginTop="320px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/mConfirm"
+            android:layout_marginLeft="72px"
+            android:layout_marginRight="72px"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:text="确定"
+            android:textSize="36px"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape_btn_newphone"/>
+    </LinearLayout>
+
+</LinearLayout>

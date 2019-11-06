@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:padding="15dp"
+        android:layout_marginTop="15dp"
+        >
+    <TextView
+        android:id="@+id/tvCompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="瑞祥北京总部"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:id="@+id/tvCompanyTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4000-123-1234"
+        android:drawableRight="@mipmap/iphone_icon_blue"
+        android:textSize="16sp"
+        android:drawablePadding="8dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:id="@+id/tvCompanyAdress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京市海淀区永定河"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        />
+
+    </LinearLayout>
+</LinearLayout>

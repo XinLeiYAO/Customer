@@ -1,5 +1,6 @@
 package com.example.asus.customer.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -45,7 +46,11 @@ public class ProtocolActivity extends BaseActivity {
         wvProtocol.loadUrl(url);
 
         wvProtocol.setInitialScale(50);
-
+        //解除数据阻止
+        wvProtocol.getSettings().setBlockNetworkImage(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            wvProtocol.getSettings().setMixedContentMode(2);
+        }
         wvProtocol.getSettings().setJavaScriptEnabled(true);
         // 为图片添加放大缩小功能
         wvProtocol.getSettings().setUseWideViewPort(true);

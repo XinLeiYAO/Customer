@@ -2,8 +2,11 @@ package com.example.asus.customer.commons.base;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.asus.customer.R;
 import com.example.asus.customer.commons.utils.AutoUtils;
+import com.flyco.tablayout.CommonTabLayout;
 
 
 import java.util.ArrayList;
@@ -29,13 +33,17 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 
     private View view;
     protected P mPresenter;
-
     public Toast toast;
+    public FragmentManager fragmentManager;
+    public boolean isViewCreated;
+    public boolean isUIVisible;
+    public boolean isCreate = false;
+    public boolean ishide = false;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        fragmentManager = getFragmentManager();
         view = LayoutInflater.from(container.getContext()).inflate(getFragmentLayout(), container, false);
         //初始化屏幕适配
         AutoUtils.auto(view);
@@ -44,7 +52,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if (onCreatePresenter() != null) {
             mPresenter = onCreatePresenter();
         }
-        FragmentInitData();
+        isCreate = true;
         return view;
     }
 
@@ -76,7 +84,21 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage(getString(R.string.loading));
         dialog.show();
+        handler.sendEmptyMessageDelayed(10, 3000);
     }
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if (msg.what == 10) {
+                dismissLoading();
+            }
+
+
+        }
+    };
 
     public void dismissLoading() {
         if (dialog != null && dialog.isShowing()) {
@@ -94,6 +116,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        isViewCreated = true;
+        FragmentInitData();
         Log.d(getClass().getSimpleName(), ":onActivityCreated");
     }
 
@@ -143,6 +167,20 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         Log.d(getClass().getSimpleName(), ":onDetach");
     }
 
+
+    public static int MIN_DELAY_TIME = 2000;  // 两次点击间隔不能少于1000ms
+    private static long lastClickTime;
+
+    public static boolean isFastClick() {
+        boolean flag = true;
+        long currentClickTime = System.currentTimeMillis();
+        if ((currentClickTime - lastClickTime) >= MIN_DELAY_TIME) {
+            flag = false;
+        }
+        lastClickTime = currentClickTime;
+        return flag;
+    }
+
     /**
      * 照片预览
      */
@@ -153,7 +191,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 //        list.add(localMedia);
 //        PictureSelector.create(this).externalPicturePreview(0, list);
 //    }
-
     protected abstract P onCreatePresenter();
 
 }

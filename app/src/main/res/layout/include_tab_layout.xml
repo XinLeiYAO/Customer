@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="98px"
+    android:id="@+id/bottom_tab"
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
@@ -14,6 +15,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/new_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/ripple_bg"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_new_home"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_new_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_new_home"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="@string/home"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/rl_tab_home"
@@ -21,6 +50,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
+            android:background="@drawable/ripple_bg"
             android:gravity="center">
 
             <ImageView
@@ -36,7 +66,7 @@
                 android:layout_below="@+id/iv_tab_home"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="6px"
-                android:text="@string/home"
+                android:text="服务"
                 android:textColor="@color/colorGrayDark"
                 android:textSize="20px" />
 
@@ -48,6 +78,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
+            android:background="@drawable/ripple_bg"
             android:gravity="center">
 
             <ImageView
@@ -63,7 +94,7 @@
                 android:layout_below="@+id/iv_tab_wallet"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="6px"
-                android:text="@string/more"
+                android:text="项目"
                 android:textColor="@color/colorGrayDark"
                 android:textSize="20px" />
 
@@ -75,6 +106,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
+            android:background="@drawable/ripple_bg"
             android:gravity="center">
 
             <ImageView
@@ -90,11 +122,12 @@
                 android:layout_below="@+id/iv_tab_find"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="6px"
-                android:text="@string/find"
+                android:text="订单"
                 android:textColor="@color/colorGrayDark"
                 android:textSize="20px" />
 
         </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/rl_tab_mine"
@@ -102,25 +135,46 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
+            android:background="@drawable/ripple_bg"
             android:gravity="center">
-
-            <ImageView
-                android:id="@+id/iv_tab_mine"
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:id="@+id/tv_tab_mine"
+            <LinearLayout
+                android:id="@+id/ll_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_tab_mine"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="6px"
-                android:text="@string/mine"
-                android:textColor="@color/colorGrayDark"
-                android:textSize="20px" />
+                android:gravity="center"
 
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/iv_tab_mine"
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_tab_mine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_tab_mine"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:text="@string/mine"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="20px" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_msgnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/ll_view"
+                android:layout_alignTop="@+id/ll_view"
+                android:background="@drawable/dotred"
+                android:gravity="center"
+                android:text=""
+              android:visibility="gone"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_m"
+              />
         </RelativeLayout>
 
     </LinearLayout>

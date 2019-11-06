@@ -54,6 +54,13 @@ public class TokenInfo {
         private String Token;
         private String appId;
 
+        public BodyBean(String cardNo, String account, String token, String appId) {
+            this.cardNo = cardNo;
+            this.account = account;
+            Token = token;
+            this.appId = appId;
+        }
+
         public String getCardNo() {
             return cardNo;
         }

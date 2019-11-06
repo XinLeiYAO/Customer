@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBG"
+    tools:context=".activity.FaBiaoMessageActivity">
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginLeft="20px"
+       android:layout_marginBottom="20px"
+       android:layout_marginRight="20px"
+       android:background="@color/colorWhite"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:orientation="vertical"
+           android:layout_height="match_parent"
+           >
+
+
+           <!--选择评价-->
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="100px"
+               android:orientation="horizontal"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               >
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:text="选择评价"
+                   android:textSize="28px"
+                   android:gravity="center"
+                   android:textColor="@color/black"
+                   />
+               <RelativeLayout
+                   android:layout_width="0px"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:id="@+id/you_select"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="优"
+                       android:layout_centerInParent="true"
+                       android:background="@drawable/text_circle_new_blue"
+                       android:gravity="center"
+                       android:textSize="28px"
+                       android:textColor="@color/black"
+                       />
+                   <TextView
+                       android:id="@+id/you_Noselect"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="优"
+                       android:visibility="gone"
+                       android:layout_centerInParent="true"
+                       android:background="@drawable/text_circle_new_gray"
+                       android:gravity="center"
+                       android:textSize="28px"
+                       android:textColor="@color/black"
+                       />
+               </RelativeLayout>
+               <RelativeLayout
+                   android:layout_width="0px"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:id="@+id/cha_select"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="差"
+                       android:layout_centerInParent="true"
+                       android:background="@drawable/text_circle_new_blue"
+                       android:gravity="center"
+                       android:textSize="28px"
+                       android:visibility="gone"
+                       android:textColor="@color/black"
+                       />
+                   <TextView
+                       android:id="@+id/cha_Noselect"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="差"
+                       android:layout_centerInParent="true"
+                       android:background="@drawable/text_circle_new_gray"
+                       android:gravity="center"
+                       android:textSize="28px"
+                       android:textColor="@color/black"
+                       />
+               </RelativeLayout>
+
+           </LinearLayout>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1px"
+               android:background="@color/colorBG"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               />
+           <!--服务评价-->
+           <TextView
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="服务标签"
+               android:textSize="28px"
+               android:textColor="@color/black"
+               />
+
+           <com.zhy.view.flowlayout.TagFlowLayout
+               android:id="@+id/id_flowlayout"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               android:background="#00ffffff"
+               app:max_select="-1"></com.zhy.view.flowlayout.TagFlowLayout>
+
+           <android.support.v7.widget.RecyclerView
+               android:visibility="gone"
+               android:id="@+id/recycleView_top"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+           <EditText
+               android:id="@+id/pingjia_edit"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@null"
+               android:hint="请您填写对本次服务的评价"
+               android:textSize="28px"
+               android:paddingTop="20px"
+               android:paddingBottom="20px"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               />
+
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/recycleView_bottom"
+               android:layout_marginTop="20px"
+               android:layout_marginLeft="20px"
+               android:layout_marginRight="20px"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+       </LinearLayout>
+   </ScrollView>
+
+</LinearLayout>

@@ -14,12 +14,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.acker.simplezxing.activity.CaptureActivity;
-import com.bigkoo.pickerview.OptionsPickerView;
-import com.bigkoo.pickerview.TimePickerView;
+import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.example.asus.customer.R;
 import com.example.asus.customer.activity.QrLoginActivity;
 import com.example.asus.customer.commons.App;
 import com.example.asus.customer.commons.base.BaseFragment;
+import com.example.asus.customer.commons.utils.AntiShake;
 import com.example.asus.customer.commons.utils.JSONUtils;
 import com.example.asus.customer.entity.FindInfo;
 import com.example.asus.customer.entity.FindInformationBean;
@@ -93,10 +94,12 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
 
     @Override
     protected void FragmentInitData() {
+        tvSubmit.setVisibility(View.VISIBLE);
         tvTitle.setText("项目-合同");
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(new AntiShake().check(ivBack.getId())) return;
                 QRCodeScan();
             }
         });
@@ -139,110 +142,110 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
         switch (view.getId()) {
             //比例
             case R.id.bili_tv:
-                biliPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        biliTv.setText(bililist.get(options1));
-                        biliTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        bili = options1;
-                    }
-                }).build();
-                biliPV.setPicker(bililist);
-                biliPV.show();
+//                biliPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        biliTv.setText(bililist.get(options1));
+//                        biliTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        bili = options1;
+//                    }
+//                }).build();
+//                biliPV.setPicker(bililist);
+//                biliPV.show();
                 break;
             //返回按钮
             case R.id.iv_back:
-
+                QRCodeScan();
                 break;
             //合同签订时间
             case R.id.data_tv:
-                TimePickerView timePickerView = new TimePickerView.Builder(getContext(), new TimePickerView.OnTimeSelectListener() {
-                    @Override
-                    public void onTimeSelect(Date date, View v) {
-                        String lhousetime = getDateToString(date, "yyyy/MM/dd");
-                        dataTv.setText(lhousetime);
-                        dataTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        hetongtime = lhousetime;
-
-                    }
-                }).setType(new boolean[]{true, true, true, false, false, false})
-                        .setCancelText("取消")
-                        .setSubmitText("确定")
-                        .setContentSize(16)//滚轮文字大小
-                        .setTitleSize(20)//标题文字大小
-                        .setTitleText("请选择时间")//标题文字
-                        .setOutSideCancelable(true)//点击屏幕，点在控件外部范围时，是否取消显示
-                        .setRange(1900, Calendar.YEAR)
-                        .isCyclic(true)//是否循环滚动
-                        .setLabel("年", "月", "日", "时", "分", "秒")
-                        .isCenterLabel(true) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
-                        .build();
-                timePickerView.show();
+//                TimePickerView timePickerView = new TimePickerView.Builder(getContext(), new TimePickerView.OnTimeSelectListener() {
+//                    @Override
+//                    public void onTimeSelect(Date date, View v) {
+//                        String lhousetime = getDateToString(date, "yyyy/MM/dd");
+//                        dataTv.setText(lhousetime);
+//                        dataTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        hetongtime = lhousetime;
+//
+//                    }
+//                }).setType(new boolean[]{true, true, true, false, false, false})
+//                        .setCancelText("取消")
+//                        .setSubmitText("确定")
+//                        .setContentSize(16)//滚轮文字大小
+//                        .setTitleSize(20)//标题文字大小
+//                        .setTitleText("请选择时间")//标题文字
+//                        .setOutSideCancelable(true)//点击屏幕，点在控件外部范围时，是否取消显示
+//                        .setRange(1900, Calendar.YEAR)
+//                        .isCyclic(true)//是否循环滚动
+//                        .setLabel("年", "月", "日", "时", "分", "秒")
+//                        .isCenterLabel(true) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+//                        .build();
+//                timePickerView.show();
                 break;
             //施工时间
             case R.id.shigongday_tv:
-                shigongPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        shigongdayTv.setText(shigonglist.get(options1));
-                        shigongdayTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        shigong = options1;
-                    }
-                }).build();
-                shigongPV.setPicker(shigonglist);
-                shigongPV.show();
+//                shigongPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        shigongdayTv.setText(shigonglist.get(options1));
+//                        shigongdayTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        shigong = options1;
+//                    }
+//                }).build();
+//                shigongPV.setPicker(shigonglist);
+//                shigongPV.show();
                 break;
             //蓝图
             case R.id.lantu_tv:
-                lantuPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        lantuTv.setText(lantulist.get(options1));
-                        lantuTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        lantu = options1;
-                    }
-                }).build();
-                lantuPV.setPicker(lantulist);
-                lantuPV.show();
+//                lantuPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        lantuTv.setText(lantulist.get(options1));
+//                        lantuTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        lantu = options1;
+//                    }
+//                }).build();
+//                lantuPV.setPicker(lantulist);
+//                lantuPV.show();
                 break;
             //空调
             case R.id.kongtiao_tv:
-                kongtiaoPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        kongtiaoTv.setText(kongtiaolist.get(options1));
-                        kongtiaoTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        kongtiao = options1;
-                    }
-                }).build();
-                kongtiaoPV.setPicker(kongtiaolist);
-                kongtiaoPV.show();
+//                kongtiaoPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        kongtiaoTv.setText(kongtiaolist.get(options1));
+//                        kongtiaoTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        kongtiao = options1;
+//                    }
+//                }).build();
+//                kongtiaoPV.setPicker(kongtiaolist);
+//                kongtiaoPV.show();
                 break;
             //消防
             case R.id.xiaofang_tv:
-                xiaofangPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        xiaofangTv.setText(xiaofanglist.get(options1));
-                        xiaofangTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        xiaofang = options1;
-                    }
-                }).build();
-                xiaofangPV.setPicker(xiaofanglist);
-                xiaofangPV.show();
+//                xiaofangPV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        xiaofangTv.setText(xiaofanglist.get(options1));
+//                        xiaofangTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        xiaofang = options1;
+//                    }
+//                }).build();
+//                xiaofangPV.setPicker(xiaofanglist);
+//                xiaofangPV.show();
                 break;
             //区域保护
             case R.id.place_tv:
-                placePV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        placeTv.setText(placelist.get(options1));
-                        placeTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
-                        place = options1;
-                    }
-                }).build();
-                placePV.setPicker(placelist);
-                placePV.show();
+//                placePV = new OptionsPickerView.Builder(getContext(), new OptionsPickerView.OnOptionsSelectListener() {
+//                    @Override
+//                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
+//                        placeTv.setText(placelist.get(options1));
+//                        placeTv.setTextColor(HeTongFragment.this.getResources().getColor(R.color.colorBlackLight));
+//                        place = options1;
+//                    }
+//                }).build();
+//                placePV.setPicker(placelist);
+//                placePV.show();
                 break;
             //提交
             case R.id.tv_submit:
@@ -290,6 +293,8 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
         }
     }
 
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -318,7 +323,12 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
 
     @Override
     public void getProgssData(FindInfo.BodyBean bodyBean) {
-
+        if(ci_clientName.length()>4){
+            String substring = ci_clientName.substring(0, 4);
+            tvTitle.setText(substring +"-"+ "合同");
+        }else {
+            tvTitle.setText(ci_clientName +"-"+ "合同");
+        }
         App.projectName=bodyBean.getBaseInformation().getCi_ClientName();
         FindInfo.BodyBean.ContractInfomationPojoBean contractInfomationPojo = bodyBean.getContractInfomationPojo();
         //  //付款比例
@@ -412,20 +422,7 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-    /**
-     * 扫描二维码
-     */
-    private static final int REQ_CODE_PERMISSION = 0x1111;
 
-    private void QRCodeScan() {//6.0以上的手机需要处理权限
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            // Do not have the permission of camera, request it.
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQ_CODE_PERMISSION);
-        } else {
-            // Have gotten the permission
-            startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
-        }
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -435,6 +432,7 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
                     case RESULT_OK:
                         if (data != null) {
                             String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
+                            Log.e("tag",result);
                             QRresultBean info = JSONUtils.toObject(result, QRresultBean.class);
                             String biaoshi = info.getParameter().getLogin_id();
                             if (biaoshi != null) {
@@ -453,4 +451,22 @@ public class HeTongFragment extends BaseFragment<FindPresenter> implements FindC
                 break;
         }
     }
+    /**
+     * 扫描二维码
+     */
+    private static final int REQ_CODE_PERMISSION = 0x1111;
+
+    private void QRCodeScan() {//6.0以上的手机需要处理权限
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            // Do not have the permission of camera, request it.
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQ_CODE_PERMISSION);
+        } else {
+            // Have gotten the permission
+            startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+        }
+    }
+
+
+
+
 }

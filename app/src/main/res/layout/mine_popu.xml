@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="130px"
+    android:layout_marginLeft="40px"
+    android:layout_marginRight="40px"
+    >
+
+    <LinearLayout
+        android:id="@+id/tuzhi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:id="@+id/gongyingshang"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="20px"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="供应商"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/quanbu"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="20px"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="全部"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/daipeisong"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="20px"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="待配送"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/jinxingzhong"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="20px"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="进行中"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/daiqueren"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:layout_marginBottom="20px"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="待确认"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/daipingjia"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="30px"
+            android:background="@color/colorBG"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10px"
+                android:layout_marginBottom="20px"
+                android:layout_toRightOf="@+id/tsjy_img"
+                android:text="待评价"
+                android:textColor="@color/text_black"
+                android:textSize="30px" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

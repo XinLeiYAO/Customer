@@ -9,8 +9,8 @@
 	<dimen name="text_size_maxbig">70px</dimen>
 	<dimen name="text_size_littlebig">48px</dimen>
 	<dimen name="text_size_sobig">55px</dimen>
-	<dimen name="text_size_8">28px</dimen>
-	<dimen name="text_size_m">26px</dimen>
+	<dimen name="text_size_8">32px</dimen>
+	<dimen name="text_size_m">28px</dimen>
 	<dimen name="text_size_4">24px</dimen>
 	<dimen name="text_size_s">22px</dimen>
 	<dimen name="page_margin_s">20px</dimen>

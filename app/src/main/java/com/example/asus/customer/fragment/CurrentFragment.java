@@ -181,7 +181,7 @@ public class CurrentFragment extends BaseFragment<CurrentPresenter> implements C
         Designsheet.setAdapter(originalAdapter);
         Archetypediagram.setAdapter(flatcolorlAdapter);
         swiperereshlayout.setRefreshing(false);//设置不刷新
-//接口回掉
+        //接口回掉
         originalAdapter.setListener(new RecyViewAdapter.onClick() {
             @Override
             public void setItem(View v, int possiton) {

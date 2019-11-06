@@ -58,7 +58,6 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("ssss",s);
                         ProgssInfo picture = JSONUtils.toObject(s, ProgssInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.getProgssData(picture.getBody());
@@ -87,13 +86,12 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e(TAG,s);
                         MineUserInfo mineUserInfo = JSONUtils.toObject(s, MineUserInfo.class);
                         if(mineUserInfo.getStatusCode()==200){
                             MineUserInfo.BodyBean body = mineUserInfo.getBody();
@@ -123,13 +121,12 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e(TAG,s);
                         Picture picture = JSONUtils.toObject(s, Picture.class);
                         if(picture.getStatusCode()==0){
                             mView.getCurrentData(picture.getBody());
@@ -158,13 +155,12 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("tag",s);
                         DesignInfo picture = JSONUtils.toObject(s, DesignInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.loadDesignDescription(picture.getBody());
@@ -193,13 +189,12 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("bug",s);
                         OptimizationBean picture = JSONUtils.toObject(s, OptimizationBean.class);
                         if(picture.getStatusCode()==0){
                             picture.getBody();
@@ -229,14 +224,13 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
 
-                        Log.e("tag",s);
                         List<PhotoDetailsBean> mlist= new Gson().fromJson(s, new TypeToken<List<PhotoDetailsBean>>() {
                         }.getType());
                         mView.volumeRoomPhooto(mlist);
@@ -262,7 +256,7 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
@@ -304,8 +298,6 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                        //  Log.e("find",s);
-                        Log.e("find",s);
                         FindInformationBean picture = JSONUtils.toObject(s, FindInformationBean.class);
 
 
@@ -340,7 +332,6 @@ public class ProcessPresenter extends ProcessContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("find",s);
                         RecommendBean picture = JSONUtils.toObject(s, RecommendBean.class);
                         if(picture.getStatusCode()==0){
                             mView.getRecommendData(picture);

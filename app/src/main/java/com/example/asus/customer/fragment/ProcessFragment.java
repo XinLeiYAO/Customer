@@ -48,8 +48,6 @@ public class ProcessFragment extends BaseFragment<ProcessPresenter> implements P
     TextView tvTitle;
     @Bind(R.id.iv_back)
     ImageView ivBack;
-    @Bind(R.id.show_popup)
-    RelativeLayout showPopup;
     @Bind(R.id.Designer_listview)
     RecyclerView DesignerListview;
     @Bind(R.id.img)
@@ -164,7 +162,6 @@ public class ProcessFragment extends BaseFragment<ProcessPresenter> implements P
     @Override
     public void onResume() {
         super.onResume();
-      //  Log.e("lrj", App.body.getOrderNo());
 //        mPresenter.getProgssData(App.body.getOrderNo());
 //        mPresenter.loadCurreerPhotoData(App.body.getOrderNo());
 //        mPresenter.loadHomedata(App.body.getOrderNo());
@@ -318,7 +315,6 @@ public class ProcessFragment extends BaseFragment<ProcessPresenter> implements P
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img:
-
                 intent.putExtra(Constants.INDEXES, 0);
                 intent.putExtra(Constants.TITLE, "初稿");
                 intent.putStringArrayListExtra(Constants.JUMPLIST, one);

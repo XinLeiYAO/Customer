@@ -158,8 +158,17 @@ public class SuggestActivity extends BaseActivity<SuggestPresenter> implements S
                     return;
                 }
                 imgList.remove(imgList.size() - 1);
+                String u_name = null;
+                String phone = null;
 
-             mPresenter.subSuggestInfo(App.body.getBaseinfo().getName(),App.body.getBaseinfo().getPhone(),content,0,App.orderNo,imgList);
+                if (App.body != null) {
+                    u_name = App.body.getU_name();
+                    phone = App.body.getPhone();
+                }
+                if (App.body != null) {
+
+                }
+                mPresenter.subSuggestInfo(u_name, phone, content, 0, App.orderNo, imgList);
                 break;
         }
     }

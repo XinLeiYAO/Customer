@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="710px"
+    android:layout_marginLeft="48px"
+    android:layout_marginRight="48px"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="710px"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/shengjiback"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="333px" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="244px"
+            android:paddingLeft="22px"
+            android:paddingRight="22px">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="67px"
+                android:orientation="vertical"
+                android:padding="22px">
+
+                <TextView
+                    android:id="@+id/update_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登陆优化"
+                    android:textColor="#666666"
+                    android:textSize="26px" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_xiazai"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:max="100"
+            android:progressDrawable="@drawable/progress_style"
+            android:visibility="gone" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#cbcbcb" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/anzhuang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="立即安装"
+                android:textColor="#137bf1"
+                android:textSize="36px"
+                android:visibility="gone"
+                android:layout_centerInParent="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/close"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="残忍拒绝"
+                    android:textColor="#000000"
+                    android:textSize="36px" />
+
+                <View
+                    android:id="@+id/xian"
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#cbcbcb" />
+
+                <TextView
+                    android:id="@+id/confirm_upgrade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="立刻升级"
+                    android:textColor="#000000"
+                    android:textSize="36px" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

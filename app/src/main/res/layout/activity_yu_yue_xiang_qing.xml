@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.YuYueXiangQingActivity">
+
+    <include layout="@layout/include_header_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            >
+            <TextView
+                android:id="@+id/zhuangxiuType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家装类型"
+                android:textSize="26px"
+                android:textColor="@color/colorGray"
+                />
+            <TextView
+                android:id="@+id/typeStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26px"
+                android:textColor="@color/black"
+                android:text="住宅  一室一厅  100m²"
+                android:layout_marginLeft="40px"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray"
+            android:layout_marginTop="20px" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="量房方式"
+                android:textSize="26px"
+                android:textColor="@color/colorGray"
+                />
+            <TextView
+                android:id="@+id/liangfangType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26px"
+                android:textColor="@color/black"
+                android:text="自己量房"
+                android:layout_marginLeft="40px"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray"
+            android:layout_marginTop="20px" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地址信息"
+                android:textSize="26px"
+                android:textColor="@color/colorGray"
+                />
+            <TextView
+                android:id="@+id/addressStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26px"
+                android:textColor="@color/black"
+                android:text="北京永定河路瑞祥装饰110号院"
+                android:layout_marginLeft="40px"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray"
+            android:visibility="gone"
+            android:layout_marginTop="20px" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="量房时间"
+                android:textSize="26px"
+                android:textColor="@color/colorGray"
+                />
+            <TextView
+                android:id="@+id/timeStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26px"
+                android:textColor="@color/black"
+                android:text="10月2日 星期三 14点30 分"
+                android:layout_marginLeft="40px"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorGray"
+            android:layout_marginTop="20px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20px"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="备注需求"
+                android:textSize="26px"
+                android:textColor="@color/colorGray"
+                />
+            <TextView
+                android:id="@+id/beizhuStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26px"
+                android:textColor="@color/black"
+                android:text="来时请提前电话联系！来时请提前电话联系！"
+                android:layout_marginLeft="40px"
+                />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

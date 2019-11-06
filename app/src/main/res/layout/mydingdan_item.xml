@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    android:background="@drawable/border_circle"
+    >
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="20px">
+
+        <TextView
+            android:id="@+id/dingdan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图纸>效果图"
+            android:textColor="@color/text_black"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dingdan_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="已完成"
+            android:textColor="@color/colorGray"
+            android:textSize="28px"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginBottom="20px">
+
+        <TextView
+            android:id="@+id/dingdan_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单编号：3种"
+            android:textColor="@color/colorGray"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/dingdan_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="下单时间：2019/05/09     16:57"
+            android:layout_below="@+id/dingdan_type"
+            android:textColor="@color/colorGray"
+            android:textSize="28px" />
+
+
+
+        <TextView
+            android:id="@+id/dingdan_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="20px"
+            android:text="已完成"
+            android:textColor="@color/colorWhite"
+            android:textSize="28px" />
+
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/dingdan_img"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginRight="20px"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>

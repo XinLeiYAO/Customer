@@ -3,14 +3,19 @@ package com.example.asus.customer.activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bigkoo.pickerview.OptionsPickerView;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.asus.customer.R;
+import com.example.asus.customer.activity.home.KeHuHomeLiangFangDataActivity;
 import com.example.asus.customer.api.ApiEngine;
 import com.example.asus.customer.commons.App;
 import com.example.asus.customer.commons.Constants;
@@ -20,6 +25,8 @@ import com.example.asus.customer.commons.utils.JSONUtils;
 import com.example.asus.customer.commons.utils.OkhttpUtils;
 import com.example.asus.customer.commons.utils.PrefUtils;
 import com.example.asus.customer.commons.utils.ShowUtils;
+import com.example.asus.customer.entity.ImgBean;
+import com.example.asus.customer.entity.OSSBean;
 import com.example.asus.customer.entity.UserInfoBean;
 import com.example.asus.customer.mvp.contract.UpdUserInfoContract;
 import com.example.asus.customer.mvp.presenter.UpdUserInfoPresenter;
@@ -35,12 +42,16 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.qqtheme.framework.picker.DatePicker;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/**
+ * 用户  基本信息  界面
+ */
 public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> implements UpdUserInfoContract.View {
 
     @Bind(R.id.tv_title)
@@ -63,13 +74,16 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
     public static final String TITLE = "基本信息";
     @Bind(R.id.tv_ewm)
     ImageView tvEwm;
+    @Bind(R.id.iv_back)
+    ImageView ivBack;
+    @Bind(R.id.kehu_home_liangfang_jiben_lin)
+    RelativeLayout kehuHomeLiangfangJibenLin;
 
     private DatePicker picker;
 
     //性别
     List<String> sexList;
     //性别
-    private OptionsPickerView sexPicker;
 
     private String mSex;
 
@@ -81,58 +95,78 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
     private String image;
     private Dialog alertDialog;
     private String ewm;
+    private OptionsPickerView pickerView;
 
     @Override
     public int getLayout() {
         return R.layout.activity_user_info;
     }
 
+    /**
+     * 初始化数据
+     */
     @Override
     public void initData() {
+        ivBack.setVisibility(View.VISIBLE);
         initTitle();
         initUpData();
         initSexData();
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
+    /**
+     * 标题
+     */
     private void initTitle() {
         tvTitle.setText(TITLE);
     }
 
+    /**
+     * 初始化时间选择器
+     */
     private void initUpData() {
-        //初始化时间选择器
         picker = new DatePicker(this);
         picker.setRange(1900, 2100);
     }
 
+    /**
+     * 初始化性别选择  获取用户信息
+     */
     private void initSexData() {
-
         sexList = new ArrayList<>();
-
         sexList.add("男");
         sexList.add("女");
-
-        sexPicker = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
+        pickerView = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 key = "sex";
                 tvGender.setText(sexList.get(options1));
                 mSex = sexList.get(options1);
-                String cardNo = App.tokenInfo.getCardNo();
-                String token = App.tokenInfo.getToken();
-                mPresenter.updateUserInfo(cardNo, token, "sex", mSex);
+                                String cardNo = PrefUtils.getValue(UserInfoActivity.this, Constants.PHOME);
+                String token = PrefUtils.getValue(UserInfoActivity.this, Constants.PASSWORD);
+                mPresenter.updateUserInfo(token, cardNo, "sex", mSex);
             }
         }).build();
-
-        sexPicker.setPicker(sexList);
-
+        pickerView.setPicker(sexList);
     }
 
+    /**
+     * 获取用户信息
+     */
     private void initUserInfo() {
-        String cardNo = App.tokenInfo.getCardNo();
-        String token = App.tokenInfo.getToken();
+        String cardNo = PrefUtils.getValue(UserInfoActivity.this, Constants.PHOME);
+        String token = PrefUtils.getValue(UserInfoActivity.this, Constants.PASSWORD);
+
+//        String cardNo = App.tokenInfo.getCardNo();
+//        String token = App.tokenInfo.getToken();
         Map<String, Object> hashMap = new HashMap<>();
-        hashMap.put("cardNo",cardNo);
-        hashMap.put("token",token);
+        hashMap.put("cardNo", cardNo);
+        hashMap.put("token", token);
         OkhttpUtils.doPost(ApiEngine.INFORMATION, hashMap, new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
@@ -143,6 +177,7 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
                     }
                 });
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
@@ -167,8 +202,14 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
                             options.error(R.mipmap.userimage);
                             Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(options).into(rivHeadPhoto);
 
-                        } else {
-                            showToast(userInfoBean.getStatusMsg());
+                        } else if (userInfoBean.getStatusCode() == 104) {
+
+                            showToast("您的账号在其他账号登陆，请重新登陆");
+                            App.getApp().exitApp();
+                            PrefUtils.RemoveValue(UserInfoActivity.this, Constants.IS_LOGIN);
+                            PrefUtils.RemoveValue(UserInfoActivity.this, Constants.PHOME);
+                            PrefUtils.RemoveValue(UserInfoActivity.this, Constants.PASSWORD);
+                            startActivity(new Intent(UserInfoActivity.this, TextLoginActivity.class));
                         }
                     }
                 });
@@ -178,6 +219,12 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
 
     }
 
+    /**
+     * 调到另个界面  更新用户信息
+     * @param keyValue
+     * @param key
+     * @param value
+     */
     private void startUpdUserInfo(String keyValue, String key, String value) {
         Intent nickName = new Intent(this, UpdUserInfoActivity.class);
         nickName.putExtra(Constants.ACTION_TO_UPD_USER_INFO_KEY_VALUE, keyValue);
@@ -191,46 +238,37 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
         return new UpdUserInfoPresenter(this);
     }
 
+    /**
+     * 重新获取用户信息
+     */
     @Override
     public void onResume() {
         super.onResume();
-
         initUserInfo();
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-
-    }
-
-
-    @OnClick({R.id.iv_back, R.id.riv_head_photo, R.id.Fullname, R.id.tv_gender_sex, R.id.lv_birthday, R.id.tv_phone, R.id.lv_mailbox, R.id.tv_area})
+    @OnClick({R.id.kehu_home_liangfang_jiben_lin, R.id.iv_back, R.id.riv_head_photo, R.id.Fullname, R.id.tv_gender_sex, R.id.lv_birthday, R.id.tv_phone, R.id.lv_mailbox, R.id.tv_area})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.kehu_home_liangfang_jiben_lin:
+//                startActivity(new Intent(this, KeHuHomeLiangFangDataActivity.class).putExtra("title", "基本资料"));
+
+                break;
             case R.id.iv_back:
                 finish();
                 break;
             case R.id.riv_head_photo:
                 // 进入相册 以下是例子：用不到的api可以不写
-//                PictureSelector.create(this)
-//                        .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
-//                        .imageSpanCount(3)// 每行显示个数 int
-//                        .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
-//                        .freeStyleCropEnabled(true)// 裁剪框是否可拖拽 true or false
-//                        .enableCrop(true)// 是否裁剪 true or false
-//                        .withAspectRatio(1, 1)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
-//                        .scaleEnabled(false)// 裁剪是否可放大缩小图片 true or false
-//                        .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code 
-                ArrayList<String> mlist=new ArrayList<>();
+                ArrayList<String> mlist = new ArrayList<>();
                 mlist.add(image);
-              startActivity(new Intent(this, UpUpdaPhotoImageActivity.class).putStringArrayListExtra(Constants.JUMPLIST,mlist));
+                startActivity(new Intent(this, UpUpdaPhotoImageActivity.class).putStringArrayListExtra(Constants.JUMPLIST, mlist));
                 break;
             case R.id.Fullname:
                 startUpdUserInfo("姓名", "u_name", tvName.getText().toString());
                 break;
             case R.id.tv_gender_sex:
-                sexPicker.show();
+//                sexPicker.show();
+                pickerView.show();
                 break;
             case R.id.lv_birthday:
                 picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
@@ -239,7 +277,10 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
                         key = "birthday";
                         time = year + "-" + month + "-" + day;
                         tvBirthday.setText(time);
-                        mPresenter.updateUserInfo(App.tokenInfo.getToken(), App.tokenInfo.getCardNo(), "birthday", time);
+                        String cardNo = PrefUtils.getValue(UserInfoActivity.this, Constants.PHOME);
+                        String token = PrefUtils.getValue(UserInfoActivity.this, Constants.PASSWORD);
+
+                        mPresenter.updateUserInfo(token, cardNo, "birthday", time);
                     }
                 });
                 picker.show();
@@ -247,13 +288,19 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
             case R.id.tv_phone:
                 break;
             case R.id.lv_mailbox:
-                startUpdUserInfo("邮箱", "email",tvMailbox.getText().toString());
+                startUpdUserInfo("邮箱", "email", tvMailbox.getText().toString());
                 break;
             case R.id.tv_area:
                 break;
         }
     }
 
+    /**
+     * 图片选择结果回调
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -271,14 +318,7 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
 
     @Override
     public void responseUpdateData() {
-//        switch (key) {
-//            case "birthday":
-//                App.baseInfo.setBirthday(time);
-//                break;
-//            case "sex":
-//                App.baseInfo.setSex(mSex);
-//                break;
-//        }
+
         showToast("上传成功");
     }
 
@@ -289,11 +329,6 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
 
     @Override
     public void responseUpPicture() {
-//        App.baseInfo.setImage(path);
-//        RequestOptions options = new RequestOptions();
-//        options.placeholder(R.mipmap.head_portrait_icon);
-//        options.error(R.mipmap.head_portrait_icon);
-//        Glide.with(this).load(App.baseInfo.getImage()).apply(options).into(rivHeadPhoto);
     }
 
     @Override
@@ -301,6 +336,10 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
         showToast(msg);
     }
 
+    /**
+     * 重新登录
+     * @param msg
+     */
     @Override
     public void reLogin(String msg) {
         showToast(msg);
@@ -321,11 +360,21 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
         dismissLoading();
     }
 
+    @Override
+    public void OssData(OSSBean ossBean) {
+
+    }
+
+    @Override
+    public void imageIconData(ImgBean imgBean) {
+
+    }
+
     @OnClick(R.id.rl_user_ewm)
     public void onViewClicked() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this,R.style.newPassword);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.newPassword);
         View inflate = getLayoutInflater().inflate(R.layout.dialog_erweima, null);
-        ImageView imageView= (ImageView) inflate.findViewById(R.id.user_ewm);
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.user_ewm);
         Glide.with(this).load(ewm).into(imageView);
         AutoUtils.setSize(this, false, 720, 1280);
         AutoUtils.auto(inflate);
@@ -339,4 +388,6 @@ public class UserInfoActivity extends BaseActivity<UpdUserInfoPresenter> impleme
         alertDialog = dialog.create();
         alertDialog.show();
     }
+
+
 }

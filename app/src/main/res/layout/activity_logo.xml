@@ -3,15 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
->
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/show_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@mipmap/start_page" />
 
+    <LinearLayout
+        android:id="@+id/ad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
 
+        <ImageView
+            android:id="@+id/ad_image"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="7"
+            android:scaleType="centerCrop" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/ad_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="40px"
+                android:background="@drawable/background_shape_ad"
+                android:paddingLeft="30px"
+                android:paddingTop="10px"
+                android:paddingRight="30px"
+                android:paddingBottom="10px"
+                android:text="3 跳过"
+                android:textColor="#ffffff"
+                android:textSize="26px" />
+
+        </FrameLayout>
+    </LinearLayout>
 </RelativeLayout>

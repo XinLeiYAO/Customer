@@ -4,6 +4,8 @@ import com.example.asus.customer.api.ApiEngine;
 import com.example.asus.customer.mvp.contract.MineContract;
 import com.example.asus.customer.rx.RxSchedulers;
 
+import java.util.Map;
+
 import rx.Observable;
 
 /**
@@ -15,6 +17,13 @@ public class MineModel implements MineContract.Model {
     public Observable<String> loadCustomerInformation(String cardNo) {
         return ApiEngine.getInstance().getRsApiService()
                 .findVipMsgByCardNo(cardNo)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
+    @Override
+    public Observable<String> getUnreadData(Map<String, String> map) {
+        return ApiEngine.getInstance().getFsApiService()
+                .getUnreadData(map)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

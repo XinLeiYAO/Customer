@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    tools:context=".activity.FuwuAddressActivity">
+
+    <include layout="@layout/include_header_layout"
+        android:id="@+id/titleLayout"
+        ></include>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleLayout"
+        android:layout_above="@+id/addnewadress"
+        ></android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/addnewadress"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="30px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_btn_sub"
+        android:textColor="@color/colorWhite"
+        android:text="添加新地址"
+        android:layout_gravity="center_vertical"
+        android:textSize="28px"
+        />
+
+</RelativeLayout>

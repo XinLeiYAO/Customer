@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:src="@mipmap/xing" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:autoSizeMaxTextSize="11sp"
+            android:text="内容描述"
+            android:textColor="#333333"
+            android:textSize="32px" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_tousu"
+        android:layout_width="match_parent"
+        android:layout_height="264px"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/btn_style_k"
+        android:gravity="start"
+        android:hint="请描述您要投诉的内容,不少于10字"
+        android:inputType="none"
+        android:padding="5dp"
+        android:textSize="28px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="11dp"
+        android:background="@color/appbg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36px"
+            android:layout_marginTop="9dp"
+            android:text="上传照片"
+            android:textColor="#333333"
+            android:textSize="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="36px"
+            android:text="0/5"
+            android:textColor="#838383"
+            android:textSize="32px"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_commit"
+            android:layout_marginBottom="36px"
+            android:background="@color/colorWhite">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/jiaoliu_tousu_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="25px"
+                android:layout_marginRight="30px" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_commit"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="32px"
+            android:layout_marginLeft="36px"
+            android:layout_marginRight="36px"
+            android:background="@drawable/shape_btn_sub_normal"
+            android:text="提交"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+
+    </RelativeLayout>
+
+</LinearLayout>

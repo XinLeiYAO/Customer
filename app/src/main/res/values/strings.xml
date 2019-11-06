@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">客户</string>
+    <!--扫码-->
+    <string name="qr_name">二维码</string>
+    <string name="i_know">我知道了</string>
+    <string name="permission">抱歉,你的%1$s权限没有打开,无法正常服务
+        \n请点击”设置”->在应用程序中找到”popon”->权限管理->%2$s->”允许”即可 </string>
+    <string name="camera">摄像头(相机)</string>
+
+
+    <string name="app_name">瑞祥客户</string>
     <string name="loading">加载中...</string>
     <string name="home">首页</string>
-    <string name="more">更多</string>
+    <!--<string name="more">更多</string>-->
+    <string name="more">订单</string>
     <string name="find">发现</string>
-    <string name="mine">我</string>
+    <string name="mine">我的</string>
     <string name="msg">通知</string>
     <string name="setting">设置</string>
     <string name="exit">退出登录</string>
@@ -14,7 +23,7 @@
     <string name="rx_group">瑞祥集团</string>
     <string name="app_Helpgroup">App帮组中心</string>
     <string name="suggest_and_complain">投诉与建议</string>
-    <string name="version">版本</string>
+    <string name="version">当前版本</string>
     <string name="mobile_phone">手机</string>
     <string name="mailbox">邮箱</string>
     <string name="wechat">微信</string>
@@ -92,4 +101,14 @@
     <string name="birthday">生日</string>
     <string name="phone">电话</string>
     <string name="area">地区</string>
+
+    <string name="share_guize">
+"1.通过朋友圈或指定微信好友分享，生成海报分享，即可邀请好友注册，成为您的推荐客户；\n"
+                "2.您的推荐的新客户只要产生消费（量房、签单），您即可获得收益，可用于现金提现；\n"
+                "3.收益为100的整数倍方可提现，提现时间为每月的25号；\n"
+                "4.对于恶意注册、实名、作弊刷收益者，一经发现将永久列入黑名单；\n"
+                "5.本活动的最终解释权归瑞祥佳艺建筑装饰工程有限公司所有。
+    </string>
+    <string name="shareTitle">成为我的事业合伙人</string>
+    <string name="shareContent">快来试试共享装修，签单量房均可获取收益，提现/消费你说了算</string>
 </resources>

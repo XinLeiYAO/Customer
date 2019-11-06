@@ -18,7 +18,7 @@ public class DownTimerButton extends android.support.v7.widget.AppCompatButton i
     private OnClickListener mOnClickListener;
     private Timer mTimer; //调度器
     private TimerTask mTask;
-    private long duration = 10000; //倒计时时长，默认为10秒
+    private long duration = 60000; //倒计时时长，默认为10秒
     private long temp_duration;
     private String clickBefore = "验证码"; //点击前
     private String clickAfter = "秒"; //点击后

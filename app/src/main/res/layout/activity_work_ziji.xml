@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".activity.WorkZijiActivity">
+
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorBG" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="100px"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <!--意向风格-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60px"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="意向风格"
+                        android:textColor="#282828"
+                        android:textSize="26px" />
+
+                    <TextView
+                        android:id="@+id/tvStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableRight="@mipmap/ic_go"
+                        android:drawablePadding="8dp"
+                        android:text="请选择"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"/>
+
+                <!--功能需求-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="功能需求 ( 多选 ) ( 完成后可得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="100"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+                    <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/gongnnegRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        ></com.zhy.view.flowlayout.TagFlowLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"/>
+
+                <!--户型图纸-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="户型图纸 ( 上传即可获得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="200"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/huxingRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        ></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"/>
+
+                <!--现场环拍-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginRight="40px"
+                    android:layout_marginLeft="40px"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="现场环拍 ( 上传即可获得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="200"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/xianchangRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"
+                    android:gravity="center"
+                    android:text="继续录入可再享500元大礼"
+                    android:textColor="@color/colorGray"
+                    android:textSize="26px" />
+
+                <!--精准信息-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="精准信息 ( 完成后可得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="300"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+
+                    <!--原顶面高-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="原顶面高"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <EditText
+                            android:id="@+id/ed_ydmg"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:hint="请输入原顶面高(mm)"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+                    <!--主梁下高-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="主梁下高"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <EditText
+                            android:id="@+id/ed_zlxg"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:hint="请输入主梁下高(mm)"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+                    <!--次梁下高-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="次梁下高"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <EditText
+                            android:id="@+id/ed_clxg"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:hint="请输入次梁下高(mm)"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"/>
+
+                <!--电箱位置-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="电箱位置 ( 上传即可获得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="100"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/dianxiangRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        ></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"/>
+
+                <!--水管位置-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_marginLeft="40px"
+                    android:layout_marginRight="40px"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="水管位置 ( 上传即可获得 "
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="100"
+                            android:textColor="#ff5c25"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" 元 )"
+                            android:textColor="#282828"
+                            android:textSize="26px" />
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/shuiguanRecycleview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        ></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnCommit"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="40px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/selector_btn_sub"
+            android:text="（已省0元）立即提交"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentBottom="true"
+            android:textSize="26px" />
+    </RelativeLayout>
+
+
+</LinearLayout>

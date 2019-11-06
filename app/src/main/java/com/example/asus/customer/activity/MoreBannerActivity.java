@@ -45,7 +45,11 @@ public class MoreBannerActivity extends BaseActivity {
         wbRxsongs.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wbRxsongs.getSettings().setDomStorageEnabled(true);
         wbRxsongs.getSettings().setMediaPlaybackRequiresUserGesture(false);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            wbRxsongs.getSettings().setMixedContentMode(2);
+        }
+//解除数据阻止
+        wbRxsongs.getSettings().setBlockNetworkImage(false);
         wbRxsongs.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String request) {

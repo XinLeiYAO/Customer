@@ -1,7 +1,9 @@
 package com.example.asus.customer.commons.utils;
 
-import android.util.Log;
-
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,6 +11,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -19,6 +22,8 @@ import okhttp3.RequestBody;
 
 public class OkhttpUtils {
     private static OkHttpClient client = null;
+    private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
+    public static final MediaType JSON = MediaType.parse("application/json;charset=utf-8");
 
     private OkhttpUtils() {
     }
@@ -26,8 +31,9 @@ public class OkhttpUtils {
     public static OkHttpClient getInstance() {
         if (client == null) {
             synchronized (OkhttpUtils.class) {
-                if (client == null)
+                if (client == null) {
                     client = new OkHttpClient();
+                }
             }
         }
         return client;
@@ -50,7 +56,6 @@ public class OkhttpUtils {
             }
             url = buffer.substring(0, buffer.length() - 1);
         }
-        Log.e("tag", url);
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -78,15 +83,14 @@ public class OkhttpUtils {
         call.enqueue(callback);
     }
 
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-    public static void post(String url, String json , Callback Callback) {
+    public static void post(String url, String json, Callback Callback) {
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
                 .build();
-      client.newCall(request).enqueue(Callback);
+        client.newCall(request).enqueue(Callback);
 //        if (response.isSuccessful()) {
 //            return response.body().string();
 //        } else {
@@ -94,4 +98,32 @@ public class OkhttpUtils {
 //        }
     }
 
+    public static void uploadFile(String url, List<String> fileNames, Map<String, Object>
+            params, Callback Callback) {
+        //MultipartBody多功能的请求实体对象,,,formBody只能传表单形式的数据
+        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        //参数
+//        if (params.size()>0) {
+//            for (String key : params.keySet()) {
+//                builder.addFormDataPart(key, params.get(key).toString());
+//            }
+//        }
+        for (int i = 0; i < fileNames.size(); i++) {
+            File f = new File(fileNames.get(i));
+            if (f != null) {
+                builder.addFormDataPart("image", f.getName(), RequestBody.create(MEDIA_TYPE_PNG, f));
+            }
+        }
+        //构建
+        MultipartBody multipartBody = builder.build();
+
+        //创建Request
+        Request request = new Request.Builder().url(url).post(multipartBody).build();
+
+        //得到Call
+        Call call = getInstance().newCall(request);
+        //执行请求
+        call.enqueue(Callback);
+
+    }
 }

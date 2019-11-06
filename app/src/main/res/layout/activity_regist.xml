@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RegistActivity">
+
+
+    <include layout="@layout/include_header_layout" />
+
+    <!--<include layout="@layout/include_tip_layout" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px">
+
+            <ImageView
+                android:id="@+id/iv_phone_icon"
+                android:layout_width="54px"
+                android:layout_height="54px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:src="@mipmap/phone_icon" />
+
+            <TextView
+                android:id="@+id/tv_phone_text"
+                android:layout_width="130px"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:visibility="gone"
+                android:layout_toRightOf="@id/iv_phone_icon"
+                android:text="@string/phone_num"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_phone_num"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_phone_text"
+                android:background="@null"
+                android:layout_marginLeft="30px"
+                android:hint="@string/please_input_phone_num"
+                android:textColor="@color/colorBlackLight"
+                android:textColorHint="@color/colorGray"
+                android:textSize="@dimen/text_size_l"
+                android:ems="10"
+                android:maxLength="11"/>
+
+            <TextView
+                android:id="@+id/tv_old_password_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px">
+
+            <ImageView
+                android:id="@+id/iv_verification_code_icon"
+                android:layout_width="54px"
+                android:layout_height="54px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:src="@mipmap/verification_code_icon" />
+
+            <TextView
+                android:id="@+id/tv_verification_code_text"
+                android:layout_width="130px"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:visibility="gone"
+                android:layout_toRightOf="@id/iv_verification_code_icon"
+                android:text="@string/verification_code"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <Button
+                android:id="@+id/btn_verification_code"
+                android:layout_width="150px"
+                android:layout_height="44px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_btn_sub"
+                android:text="@string/get_verification_code"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_m" />
+
+            <EditText
+                android:id="@+id/et_verification_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/btn_verification_code"
+                android:layout_toRightOf="@id/tv_verification_code_text"
+                android:background="@null"
+                android:hint="@string/please_input_verification_code"
+                android:layout_marginLeft="30px"
+                android:textColor="@color/colorBlackLight"
+                android:textColorHint="@color/colorGray"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_verification_code_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px">
+
+            <ImageView
+                android:id="@+id/iv_new_password_icon"
+                android:layout_width="54px"
+                android:layout_height="54px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:src="@mipmap/new_password_icon" />
+
+            <TextView
+                android:id="@+id/tv_new_password_text"
+                android:layout_width="130px"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@id/iv_new_password_icon"
+                android:text="@string/new_password"
+                android:visibility="gone"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_new_password_text"
+                android:background="@null"
+                android:hint="请输入新密码"
+                android:inputType="textPassword"
+                android:textColor="@color/colorBlackLight"
+                android:textColorHint="@color/colorGray"
+                android:layout_marginLeft="30px"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_new_password_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:id="@+id/iv_confirm_password_icon"
+                android:layout_width="54px"
+                android:layout_height="54px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:src="@mipmap/password_icon" />
+
+            <TextView
+                android:id="@+id/tv_confirm_password_text"
+                android:layout_width="130px"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@id/iv_confirm_password_icon"
+                android:text="@string/confirm_password"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_confirm_password_text"
+                android:background="@null"
+                android:hint="@string/please_input_password_again"
+                android:inputType="textPassword"
+                android:textColor="@color/colorBlackLight"
+                android:textColorHint="@color/colorGray"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_confirm_password_line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/selector_input_line"
+                android:enabled="false" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/xieyiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/centerLayout"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="40px"
+            android:layout_marginRight="50px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="已阅读并同意以下协议"
+                android:textColor="#8590A5"
+                android:textSize="26px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_xieyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="《客户平台用户协议》"
+                    android:textColor="#8590A5"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="及"
+                    android:textColor="#8590A5"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/tv_yinsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="《客户平台隐私政策》"
+                    android:textColor="#8590A5"
+                    android:textSize="26px" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_forget_password"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="120px"
+            android:background="@drawable/selector_btn_sub"
+            android:text="同意协议并注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="34px" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

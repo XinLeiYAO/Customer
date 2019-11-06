@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.LiangFangQiyeActivity">
+    <include layout="@layout/include_header_layout"></include>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/lin_erro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:src="@mipmap/kehu_home_wuneirong" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:text="如需此图，请联系设计师"
+            android:textColor="#838383"
+            android:textSize="32px" />
+        <Button
+            android:id="@+id/zhidian"
+            android:layout_width="150px"
+            android:layout_height="70px"
+            android:layout_marginTop="50px"
+            android:background="@drawable/lan"
+            android:text="致电"
+            android:textSize="30px"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</LinearLayout>

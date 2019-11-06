@@ -1,583 +1,877 @@
 package com.example.asus.customer.commons.utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.InputFilter;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.SpannedString;
+import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
+import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 /**
- * 字符串操作工具包
- *
- * @author liux (http://my.oschina.net/liux)
- * @version 1.0
- * @created 2012-3-21
+ * Created by hjh on 2017/11/7.
  */
+
 public class StringUtils {
-    private final static Pattern emailer = Pattern
-            .compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
 
-    private final static Pattern IMG_URL = Pattern
-            .compile(".*?(gif|jpeg|png|jpg|bmp)");
 
-    private final static Pattern URL = Pattern
-            .compile("^(https|http)://.*?$(net|com|.com.cn|org|me|)");
-
-    private final static Pattern p = Pattern
-            .compile("^((13[0-9])|(15[^4,\\D])|(17[^4,\\D])|(18[0-9]))\\d{8}$");
-
-    private final static Pattern pattern_number = Pattern.compile("[0-9]*");
-
-    //定义判别用户身份证号的正则表达式（要么是15位，要么是18位，最后一位可以为字母）
-    private final static Pattern idNumPattern = Pattern.compile("(\\d{14}[0-9a-zA-Z])|(\\d{17}[0-9a-zA-Z])");
-
-    private final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>() {
-        @Override
-        protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        }
-    };
-
-    private final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
-        @Override
-        protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd");
-        }
-    };
-
-    private static StringBuffer result = new StringBuffer();
-
-    /**
-     * 将字符串转位日期类型
-     *
-     * @param sdate
-     * @return
-     */
-    public static Date toDate(String sdate) {
-        return toDate(sdate, dateFormater.get());
+    public static boolean isEmpty(String str) {
+        return !(null != str && !str.trim().equals("") && !str.equals("null"));
     }
 
-    public static Date toDate(String sdate, SimpleDateFormat dateFormater) {
+    /**
+     * 得到两个时间相差的秒数
+     *
+     * @return
+     */
+    public static int getTimetoTime(long t1, long t2) {
+        long poortime;
+        if (t1 < t2) {
+            poortime = (t2 - t1) / 1000;
+        } else {
+            poortime = (t1 - t2) / 1000;
+        }
+        String time;
+        if (poortime < 1) {
+            time = "1";
+        } else {
+            time = poortime + "";
+        }
+        int poortimes = Integer.parseInt(time);
+        return poortimes;
+    }
+
+
+    /**
+     * 将获取到的时间与当前时间对比是否超时
+     * 2超时或相同
+     *
+     * @param time
+     * @return
+     */
+    public static int CompareTime(String time) {//传入获取到的时间
+        int isover = 0;
+
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateNowStr = sdf.format(date);//当前时间
+
+        long timenow = getStringTimestamp(dateNowStr);
+        long timeget = getStringTimestamp(time);
+
+        if (timenow >= timeget) {
+            isover = 2;
+        }
+
+        return isover;
+    }
+
+
+    /**
+     * 将时间转换为时间戳
+     *
+     * @param time
+     * @return
+     */
+    public static Long getStringTimestamp(String time) {
+//        String timestamp = null;
+        Long timestamp = null;
+
         try {
-            return dateFormater.parse(sdate);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Long longTime = sdf.parse(time).getTime();
+            timestamp = sdf.parse(time).getTime();
+//            timestamp = Long.toString(longTime);
+
         } catch (ParseException e) {
-            return null;
+            e.printStackTrace();
         }
+        return timestamp;
     }
 
-    public static String millisecondsToString(long milliseconds) {
-        return dateFormater.get().format(milliseconds);
-    }
-
-    public static String getDateString(Date date) {
-        return dateFormater.get().format(date);
-    }
 
     /**
-     * 以友好的方式显示时间
+     * 计算当前时间与获取到的时间相差的秒数
      *
-     * @param sdate
+     * @param time
      * @return
      */
-    public static String friendly_time(String sdate) {
-        Date time = null;
+    public static int getTimeMiaoCha(String time) {//传入获取到的时间
 
-        if (TimeZoneUtils.isInEasternEightZones()) {
-            time = toDate(sdate);
-        } else {
-            time = TimeZoneUtils.transformTime(toDate(sdate),
-                    TimeZone.getTimeZone("GMT+08"), TimeZone.getDefault());
-        }
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateNowStr = sdf.format(date);//当前时间
 
-        if (time == null) {
-            return "Unknown";
-        }
-        String ftime = "";
-        Calendar cal = Calendar.getInstance();
+        long timenow = getStringTimestamp(dateNowStr);
+        long timeget = getStringTimestamp(time);
 
-        // 判断是否是同一天
-        String curDate = dateFormater2.get().format(cal.getTime());
-        String paramDate = dateFormater2.get().format(time);
-        if (curDate.equals(paramDate)) {
-            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
-            if (hour == 0)
-                ftime = Math.max(
-                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
-                        + "分钟前";
-            else
-                ftime = hour + "小时前";
-            return ftime;
-        }
+        int timemiao = getTimetoTime(timenow, timeget);
 
-        long lt = time.getTime() / 86400000;
-        long ct = cal.getTimeInMillis() / 86400000;
-        int days = (int) (ct - lt);
-        if (days == 0) {
-            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
-            if (hour == 0)
-                ftime = Math.max(
-                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
-                        + "分钟前";
-            else
-                ftime = hour + "小时前";
-        } else if (days == 1) {
-            ftime = "昨天";
-        } else if (days == 2) {
-            ftime = "前天 ";
-        } else if (days > 2 && days < 31) {
-            ftime = days + "天前";
-        } else if (days >= 31 && days <= 2 * 31) {
-            ftime = "一个月前";
-        } else if (days > 2 * 31 && days <= 3 * 31) {
-            ftime = "2个月前";
-        } else if (days > 3 * 31 && days <= 4 * 31) {
-            ftime = "3个月前";
-        } else {
-            ftime = dateFormater2.get().format(time);
-        }
-        return ftime;
+        return timemiao;
     }
 
-    public static String getTimeString(long milliseconds) {
-        result.delete(0, result.length());
 
-        long time = System.currentTimeMillis() - (milliseconds * 1000);
-        long mill = (long) Math.ceil(time / 1000);//秒前
-
-        long minute = (long) Math.ceil(time / 60 / 1000.0f);// 分钟前
-
-        long hour = (long) Math.ceil(time / 60 / 60 / 1000.0f);// 小时
-
-        long day = (long) Math.ceil(time / 24 / 60 / 60 / 1000.0f);// 天前
-
-        if (day - 1 > 0 && day - 1 < 30) {
-            result.append(day + "天");
-        } else if (day - 1 >= 30) {
-            result.append(Math.round((day - 1) / 30) + "个月");
-        } else if (hour - 1 > 0) {
-            if (hour >= 24) {
-                result.append("1天");
-            } else {
-                result.append(hour + "小时");
+    //list转成以“，”分隔
+    public static String listToString(List list) {
+        StringBuilder sb = new StringBuilder();
+        if (list != null && list.size() > 0) {
+            for (int i = 0; i < list.size(); i++) {
+                if (i < list.size() - 1) {
+                    sb.append(list.get(i) + ",");
+                } else {
+                    sb.append(list.get(i));
+                }
             }
-        } else if (minute - 1 > 0) {
-            if (minute == 60) {
-                result.append("1小时");
-            } else {
-                result.append(minute + "分钟");
-            }
-        } else if (mill - 1 > 0) {
-            if (mill == 60) {
-                result.append("1分钟");
-            } else {
-                result.append(mill + "秒");
-            }
-        } else {
-            result.append("刚刚");
         }
-        if (!result.toString().equals("刚刚")) {
-            result.append("前");
-        }
-        return result.toString();
+        return sb.toString();
     }
 
-    public static String friendly_time2(String sdate) {
-        String res = "";
-        if (isEmpty(sdate)) {
+
+    //判断字符串是否全为空格
+    public static int isAllBlank(String str) {
+        int isblank;//1:全为空格 2：不是
+        String ss = str.toString().trim();
+        if (ss.isEmpty()) {
+            isblank = 1;
+        } else {
+            isblank = 2;
+        }
+        return isblank;
+    }
+
+
+    public static String getVersionName(Context context) throws Exception {
+        // 获取packagemanager的实例
+        PackageManager packageManager = context.getPackageManager();
+        // getPackageName()是你当前类的包名，0代表是获取版本信息
+        PackageInfo packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+        String version = packInfo.versionName;
+        return version;
+    }
+
+
+    //设置edittext的hint字体大小
+    public static void setHintSize(String hintcontent, int hintsize, EditText editText) {
+        SpannableString ss = new SpannableString(hintcontent);
+        AbsoluteSizeSpan ass = new AbsoluteSizeSpan(hintsize, true);//true表示单位为sp
+        ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        editText.setHint(new SpannedString(ss));
+    }
+
+
+    /**
+     * 超过10000转换
+     */
+    public static String ChangeNum(int num) {
+        String numshow;
+        if (num > 10000) {
+            String str = String.valueOf(num);
+            String numfirst = str.substring(0, str.length() - 4);
+            String numlast = str.substring(str.length() - 4, str.length() - 3);
+            if (!numlast.equals("0")) {
+                numshow = numfirst + "." + numlast + "万";
+            } else {
+                numshow = numfirst + "万";
+            }
+        } else {
+            numshow = num + "";
+        }
+        return numshow;
+    }
+
+
+    /**
+     * 判断edittext是否需要滚动
+     *
+     * @param editText
+     * @return
+     */
+    public static boolean canVerticalScroll(EditText editText) {
+        //滚动的距离
+        int scrollY = editText.getScrollY();
+        //控件内容的总高度
+        int scrollRange = editText.getLayout().getHeight();
+        //控件实际显示的高度
+        int scrollExtent = editText.getHeight() - editText.getCompoundPaddingTop() - editText.getCompoundPaddingBottom();
+        //控件内容总高度与实际显示高度的差值
+        int scrollDifference = scrollRange - scrollExtent;
+
+        if (scrollDifference == 0) {
+            return false;
+        }
+        return (scrollY > 0) || (scrollY < scrollDifference - 1);
+    }
+
+
+    /**
+     * 功能：身份证的有效验证
+     *
+     * @param IDStr 身份证号
+     * @return 有效：返回"" 无效：返回String信息
+     * @throws ParseException
+     */
+    public static String IDCardValidate(String IDStr) throws Exception {
+        String errorInfo = "";// 记录错误信息
+        String[] ValCodeArr = {"1", "0", "x", "9", "8", "7", "6", "5", "4", "3", "2"};
+        String[] Wi = {"7", "9", "10", "5", "8", "4", "2", "1", "6", "3", "7", "9", "10", "5", "8", "4", "2"};
+        String Ai = "";
+        // ================ 号码的长度 15位或18位 ================
+        if (IDStr.length() != 15 && IDStr.length() != 18) {
+            errorInfo = "身份证号码长度应该为15位或18位。";
+            return errorInfo;
+        }
+        // =======================(end)========================
+
+        // ================ 数字 除最后以为都为数字 ================
+        if (IDStr.length() == 18) {
+            Ai = IDStr.substring(0, 17);
+        } else if (IDStr.length() == 15) {
+            Ai = IDStr.substring(0, 6) + "19" + IDStr.substring(6, 15);
+        }
+        if (isNumeric(Ai) == false) {
+            errorInfo = "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";
+            return errorInfo;
+        }
+        // =======================(end)========================
+
+        // ================ 出生年月是否有效 ================
+        String strYear = Ai.substring(6, 10);// 年份
+        String strMonth = Ai.substring(10, 12);// 月份
+        String strDay = Ai.substring(12, 14);// 月份
+        if (isDataFormat(strYear + "-" + strMonth + "-" + strDay) == false) {
+            errorInfo = "身份证生日无效。";
+            return errorInfo;
+        }
+        GregorianCalendar gc = new GregorianCalendar();
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+        if ((gc.get(Calendar.YEAR) - Integer.parseInt(strYear)) > 150
+                || (gc.getTime().getTime() - s.parse(strYear + "-" + strMonth + "-" + strDay).getTime()) < 0) {
+            errorInfo = "身份证生日不在有效范围。";
+            return errorInfo;
+        }
+        if (Integer.parseInt(strMonth) > 12 || Integer.parseInt(strMonth) == 0) {
+            errorInfo = "身份证月份无效";
+            return errorInfo;
+        }
+        if (Integer.parseInt(strDay) > 31 || Integer.parseInt(strDay) == 0) {
+            errorInfo = "身份证日期无效";
+            return errorInfo;
+        }
+        // =====================(end)=====================
+
+        // ================ 地区码时候有效 ================
+        Hashtable<String, String> h = GetAreaCode();
+        if (h.get(Ai.substring(0, 2)) == null) {
+            errorInfo = "身份证地区编码错误。";
+            return errorInfo;
+        }
+        // ==============================================
+
+        // ================ 判断最后一位的值 ================
+        int TotalmulAiWi = 0;
+        for (int i = 0; i < 17; i++) {
+            TotalmulAiWi = TotalmulAiWi + Integer.parseInt(String.valueOf(Ai.charAt(i))) * Integer.parseInt(Wi[i]);
+        }
+        int modValue = TotalmulAiWi % 11;
+        String strVerifyCode = ValCodeArr[modValue];
+        Ai = Ai + strVerifyCode;
+
+        if (IDStr.length() == 18) {
+            if (Ai.equalsIgnoreCase(IDStr) == false) {
+                errorInfo = "身份证无效，不是合法的身份证号码";
+                return errorInfo;
+            }
+        } else {
             return "";
         }
-
-        String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
-        String currentData = StringUtils.getDataTime("MM-dd");
-        int currentDay = toInt(currentData.substring(3));
-        int currentMoth = toInt(currentData.substring(0, 2));
-
-        int sMoth = toInt(sdate.substring(5, 7));
-        int sDay = toInt(sdate.substring(8, 10));
-        int sYear = toInt(sdate.substring(0, 4));
-        Date dt = new Date(sYear, sMoth - 1, sDay - 1);
-
-        if (sDay == currentDay && sMoth == currentMoth) {
-            res = "今天 / " + weekDays[getWeekOfDate(new Date())];
-        } else if (sDay == currentDay + 1 && sMoth == currentMoth) {
-            res = "昨天 / " + weekDays[(getWeekOfDate(new Date()) + 6) % 7];
-        } else {
-            if (sMoth < 10) {
-                res = "0";
-            }
-            res += sMoth + "/";
-            if (sDay < 10) {
-                res += "0";
-            }
-            res += sDay + " / " + weekDays[getWeekOfDate(dt)];
-        }
-
-        return res;
+        // =====================(end)=====================
+        return "";
     }
 
-    /**
-     * 获取当前日期是星期几<br>
-     *
-     * @param dt
-     * @return 当前日期是星期几
-     */
-    public static int getWeekOfDate(Date dt) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(dt);
-        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (w < 0) {
-            w = 0;
-        }
-        return w;
-    }
 
     /**
-     * 判断给定字符串时间是否为今日
+     * 功能：判断字符串是否为数字
      *
-     * @param sdate
-     * @return boolean
-     */
-    public static boolean isToday(String sdate) {
-        boolean b = false;
-        Date time = toDate(sdate);
-        Date today = new Date();
-        if (time != null) {
-            String nowDate = dateFormater2.get().format(today);
-            String timeDate = dateFormater2.get().format(time);
-            if (nowDate.equals(timeDate)) {
-                b = true;
-            }
-        }
-        return b;
-    }
-
-    /**
-     * 返回long类型的今天的日期
-     *
+     * @param str
      * @return
      */
-    public static long getToday() {
-        Calendar cal = Calendar.getInstance();
-        String curDate = dateFormater2.get().format(cal.getTime());
-        curDate = curDate.replace("-", "");
-        return Long.parseLong(curDate);
+    private static boolean isNumeric(String str) {
+        Pattern pattern = Pattern.compile("[0-9]*");
+        Matcher isNum = pattern.matcher(str);
+        return isNum.matches();
     }
 
-    public static String getCurTimeStr() {
-        Calendar cal = Calendar.getInstance();
-        String curDate = dateFormater.get().format(cal.getTime());
-        return curDate;
-    }
 
-    /***
-     * 计算两个时间差，返回的是的秒s
+    /**
+     * 功能：设置地区编码
      *
-     * @param dete1
-     * @param date2
-     * @return
-     * @author 火蚁 2015-2-9 下午4:50:06
+     * @return Hashtable 对象
      */
-    public static long calDateDifferent(String dete1, String date2) {
+    private static Hashtable<String, String> GetAreaCode() {
+        Hashtable<String, String> hashtable = new Hashtable<String, String>();
+        hashtable.put("11", "北京");
+        hashtable.put("12", "天津");
+        hashtable.put("13", "河北");
+        hashtable.put("14", "山西");
+        hashtable.put("15", "内蒙古");
+        hashtable.put("21", "辽宁");
+        hashtable.put("22", "吉林");
+        hashtable.put("23", "黑龙江");
+        hashtable.put("31", "上海");
+        hashtable.put("32", "江苏");
+        hashtable.put("33", "浙江");
+        hashtable.put("34", "安徽");
+        hashtable.put("35", "福建");
+        hashtable.put("36", "江西");
+        hashtable.put("37", "山东");
+        hashtable.put("41", "河南");
+        hashtable.put("42", "湖北");
+        hashtable.put("43", "湖南");
+        hashtable.put("44", "广东");
+        hashtable.put("45", "广西");
+        hashtable.put("46", "海南");
+        hashtable.put("50", "重庆");
+        hashtable.put("51", "四川");
+        hashtable.put("52", "贵州");
+        hashtable.put("53", "云南");
+        hashtable.put("54", "西藏");
+        hashtable.put("61", "陕西");
+        hashtable.put("62", "甘肃");
+        hashtable.put("63", "青海");
+        hashtable.put("64", "宁夏");
+        hashtable.put("65", "新疆");
+        hashtable.put("71", "台湾");
+        hashtable.put("81", "香港");
+        hashtable.put("82", "澳门");
+        hashtable.put("91", "国外");
+        return hashtable;
+    }
 
-        long diff = 0;
+    /**
+     * 验证日期字符串是否是YYYY-MM-DD格式
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isDataFormat(String str) {
+        boolean flag = false;
+        // String
+        // regxStr="[1-9][0-9]{3}-[0-1][0-2]-((0[1-9])|([12][0-9])|(3[01]))";
+        String regxStr = "^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$";
+        Pattern pattern1 = Pattern.compile(regxStr);
+        Matcher isNo = pattern1.matcher(str);
+        if (isNo.matches()) {
+            flag = true;
+        }
+        return flag;
+    }
 
-        Date d1 = null;
-        Date d2 = null;
-
+    /**
+     * 获取身份证号出生日期的年份
+     *
+     * @param context
+     * @param idCard
+     * @return
+     */
+    public static String getIDCardBirthdayYear(Context context, String idCard) {
+        String birthdayYear = "";
+        String Ai = "";
         try {
-            d1 = dateFormater.get().parse(dete1);
-            d2 = dateFormater.get().parse(date2);
-
-            // 毫秒ms
-            diff = d2.getTime() - d1.getTime();
-
+            String idCardValidate = StringUtils.IDCardValidate(idCard);
+            if (!StringUtils.isEmpty(idCardValidate)) {
+                Toast.makeText(context, idCardValidate, Toast.LENGTH_LONG).show();
+                birthdayYear = "";
+            } else {
+                if (idCard.length() == 18) {
+                    Ai = idCard.substring(0, 17);
+                } else if (idCard.length() == 15) {
+                    Ai = idCard.substring(0, 6) + "19" + idCard.substring(6, 15);
+                }
+                birthdayYear = Ai.substring(6, 10);// 年份
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return diff / 1000;
+        return birthdayYear;
     }
 
     /**
-     * 判断给定字符串是否空白串。 空白串是指由空格、制表符、回车符、换行符组成的字符串 若输入字符串为null或空字符串，返回true
+     * 获取身份证号出生日期(yyyy-MM-dd)
      *
-     * @param input
-     * @return boolean
+     * @param context
+     * @param idCard
+     * @return
      */
-    public static boolean isEmpty(String input) {
-        if (input == null || "".equals(input))
-            return true;
-
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (c != ' ' && c != '\t' && c != '\r' && c != '\n') {
-                return false;
+    public static String getIDCardBirthday(Context context, String idCard) {
+        String birthdayYear = "";
+        String birthdayMonth = "";
+        String birthdayDay = "";
+        String Ai = "";
+        try {
+            String idCardValidate = StringUtils.IDCardValidate(idCard);
+            if (!StringUtils.isEmpty(idCardValidate)) {
+                Toast.makeText(context, idCardValidate, Toast.LENGTH_LONG).show();
+                birthdayYear = "";
+            } else {
+                if (idCard.length() == 18) {
+                    Ai = idCard.substring(0, 17);
+                } else if (idCard.length() == 15) {
+                    Ai = idCard.substring(0, 6) + "19" + idCard.substring(6, 15);
+                }
+                birthdayYear = Ai.substring(6, 10);// 年份
+                birthdayMonth = Ai.substring(10, 12);// 月份
+                birthdayDay = Ai.substring(12, 14);
             }
-        }
-        return true;
-    }
-
-    /**
-     * 判断是不是一个合法的电子邮件地址
-     *
-     * @param email
-     * @return
-     */
-    public static boolean isEmail(String email) {
-        if (email == null || email.trim().length() == 0)
-            return false;
-        return emailer.matcher(email).matches();
-    }
-
-    /**
-     * 验证手机号
-     *
-     * @param mobiles
-     * @return
-     */
-    public static boolean isMobileNO(String mobiles) {
-        if (mobiles == null || mobiles.trim().length() == 0)
-            return false;
-        Matcher m = p.matcher(mobiles);
-        return m.matches();
-    }
-
-    /**
-     * 检验身份证号
-     * @param IDCard
-     * @return
-     */
-    public static boolean isIDCard(String IDCard) {
-        if (IDCard == null || IDCard.trim().length() == 0)
-            return false;
-        Matcher m = idNumPattern.matcher(IDCard);
-        return m.matches();
-    }
-
-    /**
-     * 验证是否是数字
-     *
-     * @param str
-     * @return
-     */
-    public static boolean isNumber(String str) {
-        if (str == null || str.trim().length() == 0)
-            return false;
-        Matcher match = pattern_number.matcher(str);
-        return match.matches();
-    }
-
-    /**
-     * 判断一个url是否为图片url
-     *
-     * @param url
-     * @return
-     */
-    public static boolean isImgUrl(String url) {
-        if (url == null || url.trim().length() == 0)
-            return false;
-        return IMG_URL.matcher(url).matches();
-    }
-
-    /**
-     * 判断是否为一个合法的url地址
-     *
-     * @param str
-     * @return
-     */
-    public static boolean isUrl(String str) {
-        if (str == null || str.trim().length() == 0)
-            return false;
-        return URL.matcher(str).matches();
-    }
-
-    /**
-     * 字符串转整数
-     *
-     * @param str
-     * @param defValue
-     * @return
-     */
-    public static int toInt(String str, int defValue) {
-        try {
-            return Integer.parseInt(str);
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        return defValue;
+
+        return birthdayYear + "-" + birthdayMonth + "-" + birthdayDay;
     }
 
-    /**
-     * 对象转整数
-     *
-     * @param obj
-     * @return 转换异常返回 0
-     */
-    public static int toInt(Object obj) {
-        if (obj == null)
-            return 0;
-        return toInt(obj.toString(), 0);
-    }
 
-    /**
-     * 对象转整数
-     *
-     * @param obj
-     * @return 转换异常返回 0
-     */
-    public static long toLong(String obj) {
+    //加密
+    public static String changeUtf8(String content) {
+        String strUTF8 = null;
         try {
-            return Long.parseLong(obj);
-        } catch (Exception e) {
+            strUTF8 = URLEncoder.encode(content, "UTF-8");
+            strUTF8 = strUTF8.replaceAll("\\+", "%20");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-        return 0;
+        return strUTF8;
     }
 
-    /**
-     * 字符串转布尔值
-     *
-     * @param b
-     * @return 转换异常返回 false
-     */
-    public static boolean toBool(String b) {
+    //解密
+    public static String changeUtf8s(String content) {
+        String strUTF8 = null;
         try {
-            return Boolean.parseBoolean(b);
-        } catch (Exception e) {
+            strUTF8 = URLDecoder.decode(content, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return strUTF8;
+    }
+
+
+    public static boolean isBackground(Context context) {
+
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+            if (appProcess.processName.equals(context.getPackageName())) {
+                if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_BACKGROUND) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         }
         return false;
     }
 
-    public static String getString(String s) {
-        return s == null ? "" : s;
+
+    //去掉相同的数据
+    public static List removeDuplicateWithOrder(List list) {
+        Set set = new HashSet();
+        List newList = new ArrayList();
+        for (Iterator iter = list.iterator(); iter.hasNext(); ) {
+            Object element = iter.next();
+            if (set.add(element))
+                newList.add(element);
+        }
+        return newList;
     }
 
+
     /**
-     * 将一个InputStream流转换成字符串
+     * 从数据多的集合中，取出（两个集合非并集）的数据
      *
-     * @param is
+     * @param list1(数据少的集合)
+     * @param list2(数据多的集合)
      * @return
      */
-    public static String toConvertString(InputStream is) {
-        StringBuffer res = new StringBuffer();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader read = new BufferedReader(isr);
+    public static ArrayList<String> getTheSameSection(ArrayList<String> list1, ArrayList<String> list2) {
+        ArrayList<String> resultList = new ArrayList<String>();
+        for (String item : list2) {//遍历list2
+            if (!list1.contains(item)) {//如果不存在这个数
+                resultList.add(item);//放进一个list里面，这个list就是交集
+            }
+        }
+        return resultList;
+    }
+
+
+    /**
+     * 将字符串转为时间戳
+     *
+     * @param user_time
+     * @return
+     */
+    public static String getTime(String user_time) {
+        String re_time = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日HH时mm分ss秒");
+        Date d;
         try {
-            String line;
-            line = read.readLine();
-            while (line != null) {
-                res.append(line + "<br>");
-                line = read.readLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (null != isr) {
-                    isr.close();
-                    isr.close();
-                }
-                if (null != read) {
-                    read.close();
-                    read = null;
-                }
-                if (null != is) {
-                    is.close();
-                    is = null;
-                }
-            } catch (IOException e) {
-            }
+            d = sdf.parse(user_time);
+            long l = d.getTime() / 100;
+            String str = String.valueOf(l);
+            re_time = str.substring(0, 11);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block e.printStackTrace();
         }
-        return res.toString();
+        return re_time;
     }
 
-    /***
-     * 截取字符串
-     *
-     * @param start 从那里开始，0算起
-     * @param num   截取多少个
-     * @param str   截取的字符串
-     * @return
-     */
-    public static String getSubString(int start, int num, String str) {
-        if (str == null) {
-            return "";
+
+    public static int compare_date(String DATE1, String DATE2) {
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        try {
+            Date dt1 = df.parse(DATE1);
+            Date dt2 = df.parse(DATE2);
+            if (dt1.getTime() > dt2.getTime()) {
+                return 1;
+            } else if (dt1.getTime() < dt2.getTime()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        int leng = str.length();
-        if (start < 0) {
-            start = 0;
-        }
-        if (start > leng) {
-            start = leng;
-        }
-        if (num < 0) {
-            num = 1;
-        }
-        int end = start + num;
-        if (end > leng) {
-            end = leng;
-        }
-        return str.substring(start, end);
+        return -2;
+    }
+
+
+    //过滤emoji表情
+    public static void setProhibitEmoji(EditText et, int lengths) {
+        InputFilter[] filters = new InputFilter[]{getInputFilterProhibitEmoji(), new InputFilter.LengthFilter(lengths)};
+        et.setFilters(filters);
     }
 
     /**
-     * 获取当前时间为每年第几周
+     * 过滤emoji
      *
      * @return
      */
-    public static int getWeekOfYear() {
-        return getWeekOfYear(new Date());
+    public static InputFilter getInputFilterProhibitEmoji() {
+        InputFilter filter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                StringBuffer buffer = new StringBuffer();
+                for (int i = start; i < end; i++) {
+                    char codePoint = source.charAt(i);
+                    if (!getIsEmoji(codePoint)) {
+                        buffer.append(codePoint);
+                    } else {
+                        i++;
+                        continue;
+                    }
+                }
+                if (source instanceof Spanned) {
+                    SpannableString sp = new SpannableString(buffer);
+                    TextUtils.copySpansFrom((Spanned) source, start, end, null,
+                            sp, 0);
+                    return sp;
+                } else {
+                    return buffer;
+                }
+            }
+        };
+        return filter;
     }
 
     /**
-     * 获取当前时间为每年第几周
+     * 判断是否为emoji
      *
-     * @param date
+     * @param codePoint
      * @return
      */
-    public static int getWeekOfYear(Date date) {
-        Calendar c = Calendar.getInstance();
-        c.setFirstDayOfWeek(Calendar.MONDAY);
-        c.setTime(date);
-        int week = c.get(Calendar.WEEK_OF_YEAR) - 1;
-        week = week == 0 ? 52 : week;
-        return week > 0 ? week : 1;
+    public static boolean getIsEmoji(char codePoint) {
+        return !((codePoint == 0x0) || (codePoint == 0x9) || (codePoint == 0xA)
+                || (codePoint == 0xD)
+                || ((codePoint >= 0x20) && (codePoint <= 0xD7FF))
+                || ((codePoint >= 0xE000) && (codePoint <= 0xFFFD))
+                || ((codePoint >= 0x10000) && (codePoint <= 0x10FFFF)));
     }
 
-    public static int[] getCurrentDate() {
-        int[] dateBundle = new int[3];
-        String[] temp = getDataTime("yyyy-MM-dd").split("-");
 
-        for (int i = 0; i < 3; i++) {
-            try {
-                dateBundle[i] = Integer.parseInt(temp[i]);
-            } catch (Exception e) {
-                dateBundle[i] = 0;
+    /**
+     * 禁止换行
+     *
+     * @param editText
+     * @return
+     */
+    public static void BanANewLine(EditText editText) {
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                return (event.getKeyCode() == KeyEvent.KEYCODE_ENTER);
             }
+        });
+    }
+
+
+    /**
+     * 閸掋倖鏌嘜bject閺勵垰鎯佹稉绨剈ll
+     *
+     * @param obj
+     * @return null true
+     */
+    public static boolean isEmpty(Object obj) {
+        if (obj == null)
+            return true;
+        boolean flag = false;
+        if (obj == null || "".equals(obj) || "null".equals(obj)) {
+            flag = true;
         }
-        return dateBundle;
+        return flag;
+    }
+
+
+    /**
+     * 閸掋倖鏌噇ist閺勵垰鎯佹稉绨剈ll
+     *
+     * @param list
+     * @return null true
+     */
+    public static boolean isEmpty(List<?> list) {
+        return !(null != list && list.size() != 0);
     }
 
     /**
-     * 返回当前系统时间
+     * 閸掋倖鏌噇ist閺勵垰鎯佹稉绨剈ll
+     *
+     * @param map
+     * @return null true
      */
-    public static String getDataTime(String format) {
-        SimpleDateFormat df = new SimpleDateFormat(format);
-        return df.format(new Date());
+    public static boolean isEmpty(Map<?, ?> map) {
+        return !(null != map && !map.isEmpty());
     }
 
     /**
-     * 返回当前系统时间
+     * 鏉╂柨娲栫粚鍝勶拷锟?
      */
-    public static String getCurrentDateString() {
-        return dateFormater2.get().format(new Date());
+    public static String isEmptyToString(String str) {
+        String s = (isEmpty(str) ? "" : str.trim());
+        return s;
     }
 
-    public static String getStringBeforSeparator(String target, String separator) {
-        return target.substring(0, target.indexOf(separator));
+    /**
+     * 鏉╂柨娲栫粚鍝勶拷锟?
+     */
+    public static String isEmptyToString(Object obj) {
+        String s = (isEmpty(obj) ? "" : String.valueOf(obj));
+        return s;
     }
+
+    public static String isEmptyToString(String str, String defaultValue) {
+        String s = (isEmpty(str) ? defaultValue : str.trim());
+        return s;
+    }
+
+    public static String isNoEmptyToString(String str, String defaultValue) {
+        String s = (isEmpty(str) ? "" : defaultValue);
+        return s;
+    }
+
+
+    /**
+     * 手机号正则
+     */
+    public static boolean isMobileNO(String mobiles) {
+        String regExp = "^[1]([3][0-9]{1}|[4][0-9]{1}|[5][0-9]{1}|[7][0-9]{1}|[8][0-9]{1})[0-9]{8}$";
+        Pattern p = Pattern.compile(regExp);
+        Matcher m = p.matcher(mobiles);
+        return m.matches();
+    }
+
+    //密码是数字和字母且都有
+    public static boolean isPwds(String passwords) {
+        String pswords = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
+        Pattern p = Pattern.compile(pswords);
+        Matcher m = p.matcher(passwords);
+        return m.matches();
+    }
+
+    //密码是数字或者字母
+    public static boolean isPwd(String passwords) {
+        String pswords = "[A-Z,a-z,0-9]*";
+        Pattern p = Pattern.compile(pswords);
+        Matcher m = p.matcher(passwords);
+        return m.matches();
+    }
+
+    //是数字或者字母或者汉字
+    public static boolean isEditNickName(String nickname) {
+        String nicknames = "[^a-zA-Z0-9\u4E00-\u9FA5]";
+        Pattern p = Pattern.compile(nicknames);
+        Matcher m = p.matcher(nickname);
+        return m.matches();
+    }
+
+
+    //汉字、数字、字母过滤器
+    public static String StringFilter(String str) throws PatternSyntaxException {
+        // 只允许字母、数字和汉字
+        String regEx = "[^a-zA-Z0-9\u4E00-\u9FA5]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
+    }
+
+    //汉字、数字、字母过滤器+空格
+    public static String StringFilterblank(String str) throws PatternSyntaxException {
+        // 只允许字母、数字和汉字
+        String regEx = "[^a-zA-Z0-9\\s\u4E00-\u9FA5]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("");
+    }
+
+    //数字、字母过滤器
+    public static String StringFilterPwd(String str) throws PatternSyntaxException {
+        // 只允许字母、数字
+        String regEx = "[^a-zA-Z0-9]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
+    }
+
+    //数字过滤器
+    public static String StringFilterNum(String str) throws PatternSyntaxException {
+        // 只允许数字
+        String regEx = "[^0-9]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
+    }
+
+
+    //过滤特殊字符
+    public static String stringFilterte(String str) throws PatternSyntaxException {
+        String regEx = "[/\\:*?<>|,，\"\n\t]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("");
+    }
+
+
+    /**
+     * 汉字过滤
+     *
+     * @param str
+     * @return
+     * @throws PatternSyntaxException
+     */
+    public static String StringFilterChinese(String str) throws PatternSyntaxException {
+        // 只允许汉字
+        String regEx = "[^\u4E00-\u9FA5]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
+    }
+
+
+    /**
+     * 校验邮箱
+     */
+    public static boolean checkEmail(String str) {
+        String regulars = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+        return str.matches(regulars);
+    }
+
+
+    /**
+     * 消掉数据多余的0
+     *
+     * @param number
+     * @return
+     */
+    public static String getPrettyNumber(String number) {
+        String plainString = BigDecimal.valueOf(Double.parseDouble(number))
+                .stripTrailingZeros().toPlainString();
+        if (plainString.equals("0.0")) {
+            plainString = "0";
+        }
+        return plainString;
+    }
+
+    /**
+     * 判断是否是相同的数字
+     *
+     * @param str
+     * @return
+     * @throws IllegalArgumentException
+     */
+    public static boolean isSameChars(String str) throws IllegalArgumentException {
+        if (str == null)
+            throw new IllegalArgumentException("Input string should not be null.");
+
+        else if (str.length() < 2)
+            return true;
+
+        char first = str.charAt(0);
+        for (int i = 1; i < str.length(); i++)
+            if (str.charAt(i) != first)
+                return false;
+
+        return true;
+    }
+
+
+    /**
+     * 将金额转为万元为单位并保留一位小数
+     *
+     * @param bigDecimal
+     * @return
+     */
+    public static String toWanYuan(BigDecimal bigDecimal) {
+        // 转换为万元（除以10000）
+        BigDecimal decimal = bigDecimal.divide(new BigDecimal("10000"));
+        // 保留两位小数
+        DecimalFormat formater = new DecimalFormat("0.0");
+        // 四舍五入
+        formater.setRoundingMode(RoundingMode.HALF_UP);    // 5000008.89
+//        formater.setRoundingMode(RoundingMode.HALF_DOWN);// 5000008.89
+//        formater.setRoundingMode(RoundingMode.HALF_EVEN);
+
+        // 格式化完成之后得出结果
+        String formatNum = formater.format(decimal);
+        return formatNum;
+    }
+
+
 }

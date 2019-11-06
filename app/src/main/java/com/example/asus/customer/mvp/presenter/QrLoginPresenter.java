@@ -48,12 +48,10 @@ public class QrLoginPresenter extends QrLoginContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-
+                      Log.e("tag",s);
                         CheckInfo picture = JSONUtils.toObject(s, CheckInfo.class);
 
                             mView.getRrLoginData(picture);
-
-
 
                     }
                 });

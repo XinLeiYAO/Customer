@@ -2,14 +2,14 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- 实心 -->
     <solid
-        android:color="@color/colorGrayDark"/>
+        android:color="@color/colorGray"/>
     <!--描边-->
     <stroke
         android:width="1px"
-        android:color="@color/colorGrayDark"/>
+        android:color="@color/colorGray"/>
     <!-- 圆角 -->
     <corners
-        android:radius="8px" />
+        android:radius="108px" />
     <size
         android:width="672px"
         android:height="80px"></size>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlimage"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:orientation="vertical"
+    android:background="@drawable/shape_background_white"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/ivThumb"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="10dp"
+        android:text="上门量房，资料系统呈现"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+    <TextView
+        android:id="@+id/tvLx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="教育空间"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/textblue"
+        android:padding="5dp"
+        android:background="@drawable/shape_btn_blue"
+        android:layout_below="@+id/tvContent1"
+        />
+</LinearLayout>

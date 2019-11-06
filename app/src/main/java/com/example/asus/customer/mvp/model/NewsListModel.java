@@ -22,6 +22,13 @@ public class NewsListModel implements NewsListContract.Model
     }
 
     @Override
+    public Observable<String> getNewsList1(String cardNo, String appId, String postId, String page, String rows) {
+        return  ApiEngine.getInstance().getFaXianApiService()
+                .getNewsList1(cardNo, appId, postId,page,rows)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
+    @Override
     public Observable<String> getNewsListLoadMore(String cardNo, int pageIndex, int pageSize)
     {
         return ApiEngine.getInstance().getfindApiService()

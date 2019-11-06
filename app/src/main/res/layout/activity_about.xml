@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBG"
+    tools:context=".activity.AboutActivity">
+
+    <include layout="@layout/include_header_layout"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400px">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40px"
+            android:src="@mipmap/kh_icon"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+    <!--版本-->
+    <RelativeLayout
+        android:id="@+id/rl_vision"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="1px"
+        android:visibility="visible"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/tv_vision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="@string/version"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/tv_vision_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="30px" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <!--去评分-->
+    <RelativeLayout
+        android:id="@+id/mReplacePhone"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="1px"
+        android:visibility="visible"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="去评分"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:src="@mipmap/arrow_left" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <!--公司介绍-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="1px"
+        android:visibility="visible"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="公司介绍"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:src="@mipmap/arrow_left" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <!--公司地址-->
+    <RelativeLayout
+        android:id="@+id/llCompany"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="1px"
+        android:visibility="visible"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="公司地址"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="30px" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:src="@mipmap/arrow_left" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+</LinearLayout>

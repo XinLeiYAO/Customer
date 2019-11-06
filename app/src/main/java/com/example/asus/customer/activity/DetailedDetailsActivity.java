@@ -34,8 +34,6 @@ public class DetailedDetailsActivity extends BaseActivity<DetailedDetailsPresent
     ImageView ivBack;
     @Bind(R.id.tv_title)
     TextView tvTitle;
-    @Bind(R.id.show_popup)
-    RelativeLayout showPopup;
     @Bind(R.id.housing_Situation)
     TextView housingSituation;
     @Bind(R.id.Rent_period)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    >
+
+    <TextView
+        android:id="@+id/tuzhi_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30px"
+        android:text="图纸订单"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="15px"
+        />
+
+
+    <TextView
+        android:id="@+id/cailiao_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30px"
+        android:text="材料订单"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="15px"
+        />
+</LinearLayout>

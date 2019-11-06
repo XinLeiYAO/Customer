@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    >
+
+    <ImageView
+        android:id="@+id/xiangqing_img"
+        android:layout_width="180px"
+        android:layout_height="180px"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20px"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:text=""
+            android:textSize="28px"
+            android:textColor="@color/text_black"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/shuliang"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:text="数量：12"
+            android:visibility="gone"
+            android:textSize="28px"
+            android:layout_marginTop="10px"
+            android:textColor="@color/text_black"
+            android:gravity="center_vertical"
+            />
+        <TextView
+            android:id="@+id/guige"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="规格：30000mm*12000mm"
+            android:textSize="28px"
+            android:layout_marginTop="10px"
+            android:textColor="@color/text_black"
+            android:gravity="center_vertical"
+            />
+    </LinearLayout>
+
+</LinearLayout>

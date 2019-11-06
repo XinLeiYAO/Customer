@@ -73,7 +73,6 @@ public class ProcessModel implements ProcessContract.Model {
 
     @Override
     public Observable<String> getRecommendData(String rwdId) {
-        Log.e("rwdid",rwdId);
         return ApiEngine.getInstance().getFsApiService()
                 .getRecommendData(rwdId)
                 .compose(RxSchedulers.<String>switchThread());

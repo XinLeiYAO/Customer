@@ -47,7 +47,6 @@ public class DevelopmentPresenter extends DevelopmentContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("ssss",s);
                         FindInfo picture = JSONUtils.toObject(s, FindInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.getProgssData(picture.getBody());

@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.asus.customer">
-
+    <!-- 位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> -->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.front" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera" -->
+    <!-- tools:ignore="DuplicateUsesFeature" /> -->
+    <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera.autofocus" -->
+    <!-- tools:ignore="DuplicateUsesFeature" /> -->
+    <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera.front" -->
+    <!-- tools:ignore="DuplicateUsesFeature" /> &lt;!&ndash; Required &ndash;&gt; -->
+    <uses-permission android:name="com.example.asus.customer.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
 
     <application
         android:name=".commons.App"
@@ -19,7 +56,46 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.AddZhanghuActivity" />
+        <activity android:name=".activity.AddNewAdressActivity" />
+        <activity android:name=".activity.FuwuAddressActivity" />
+        <activity android:name=".activity.YinSiActivity" />
+        <activity android:name=".activity.WorkZijiActivity" />
+        <activity android:name=".activity.HomeZijiActivity" />
+        <activity android:name=".activity.AgainDesignActivity" />
+        <activity android:name=".activity.NewDingDanXiangQingActivity" />
+        <activity android:name=".activity.YuYueXiangQingActivity" />
+        <activity android:name=".activity.MyYuYueActivity" />
+        <activity android:name=".activity.RegistActivity" />
+        <activity android:name=".activity.ZhuangxiuYuyueActivity" />
+        <activity android:name=".activity.KeHuMessageNewActivity" />
+        <activity android:name=".activity.HistorySearchActivity" />
+        <activity android:name=".activity.LiangFangQiyeActivity" />
+        <activity android:name=".activity.DingDanIngActivity" />
+        <activity android:name=".activity.DaiQueRenNewActivity" />
+        <activity android:name=".activity.NewHistoryActivity" />
+        <activity android:name=".activity.NewBothActivity" />
+        <activity android:name=".activity.NewYiXiangActivity" />
+        <activity android:name=".activity.NewJieGouActivity" />
+        <activity android:name=".activity.NewShouGaoActivity" />
+        <activity android:name=".activity.NewQiYeActivity" />
+        <activity android:name=".activity.MyJinXingZhongActivity" />
+        <activity android:name=".activity.MyNeedActivity" />
+        <activity android:name=".activity.MyDaiQueRenActivity" />
+        <activity android:name=".activity.DingDanXiangQingActivity" />
+        <activity android:name=".activity.FaBiaoMessageActivity" />
+        <activity android:name=".activity.QianYueActivity" />
+        <activity android:name=".activity.MyDingDanActivity" />
+        <activity android:name=".activity.ZaiCiHeZuoActivity" />
+        <activity android:name=".activity.ZhangDanJiLuActivity" />
+        <activity android:name=".activity.HuanRenActivity" />
+        <activity android:name=".activity.JiaoLiuTouSuActivity" /> <!-- <mete-data -->
+        <!-- android:name="rxkh" -->
+        <!-- android:value="rxkh" /> -->
         <activity android:name=".activity.LogoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,26 +103,217 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TextLoginActivity"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+
+                <category android:name="com.example.asus.customer" />
+            </intent-filter>
+        </service> <!-- since 3.1.0 Required SDK 核心功能 -->
+        <provider
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:authorities="com.example.asus.customer.DownloadProvider"
+            android:exported="true" /> <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name="com.example.asus.customer" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver> <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.asus.customer" />
+            </intent-filter>
+        </activity> <!-- SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.asus.customer" />
+            </intent-filter>
+        </activity> <!-- Required SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" /> <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name=".receiver.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.example.asus.customer" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="111104da239e290cda43ac51" /> <!-- since 3.0.9 Required SDK 核心功能 -->
+        <!-- 友盟分享 -->
+        <activity
+            android:name=".weight.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5c808174203657b5a10000ee" />
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="1107716523" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".activity.TextLoginActivity" />
         <activity android:name=".activity.SettingsActivity" />
         <activity android:name=".activity.UploadInfoActivity" />
         <activity android:name=".activity.ComplaintActivity" />
-        <activity android:name=".activity.NjjActivity" />
+        <activity
+            android:name=".activity.NjjActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask" />
         <activity android:name=".weight.QRScannerActivity" />
         <activity android:name=".activity.PicturelistActivity" />
         <activity android:name=".activity.PhotoImageActivity" />
         <activity android:name=".activity.ProtocolActivity" />
         <activity android:name=".activity.DetailedDetailsActivity" />
         <activity android:name=".activity.FindMoreActivity" />
-        <activity android:name=".activity.FindActivity"></activity>
-        <activity android:name=".activity.QrLoginActivity"></activity>
-        <activity android:name=".activity.ForgetPwdActivity"></activity>
-        <activity android:name=".activity.MoreBannerActivity"></activity>
-        <activity android:name=".activity.WebActivity"></activity>
-        <activity android:name=".activity.SuggestActivity"></activity>
-        <activity android:name=".activity.UserInfoActivity"></activity>
-        <activity android:name=".activity.UpdUserInfoActivity"></activity>
-        <activity android:name=".activity.UpUpdaPhotoImageActivity"></activity>
+        <activity android:name=".activity.FindActivity" />
+        <activity android:name=".activity.QrLoginActivity" />
+        <activity android:name=".activity.ForgetPwdActivity" />
+        <activity android:name=".activity.MoreBannerActivity" />
+        <activity android:name=".activity.WebActivity" />
+        <activity android:name=".activity.SuggestActivity" />
+        <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.UpdUserInfoActivity" />
+        <activity android:name=".activity.UpUpdaPhotoImageActivity" />
+        <activity android:name=".activity.NewsDetailActivity" />
+        <activity android:name=".activity.InformMessageActivity" />
+        <activity android:name=".activity.AdnewsActivity" />
+        <activity android:name=".activity.MessageTwoActivity" />
+        <activity android:name=".activity.MessageDetailsActivity" />
+        <activity android:name=".activity.DevelopmentDetialActivity" />
+        <activity android:name=".activity.TouSuActivity" />
+        <activity android:name=".activity.QRZhongJianYeActivity" />
+        <activity android:name=".activity.ReplaceActivity" />
+        <activity android:name=".activity.NewPhoneActivity" />
+        <activity
+            android:name=".activity.GuidancePager"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.DialogActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/translucent" /> <!-- <activity android:name=".activKehuHomeFragmentvity"></activity> -->
+        <activity android:name=".activity.home.ShowImageActivity" />
+        <activity android:name=".activity.home.KeHuHomeLiangFangDataActivity" />
+        <activity android:name=".activity.home.KeHuHomeSheJiYuanSuActivity" />
+        <activity android:name=".activity.home.KeHuHomeWebViewActivity" />
+        <activity android:name=".activity.home.KeHuHomeLiangFangBianJiActivity" />
+        <activity android:name=".activity.home.KeHuHomeLiangFangXianChangActivity" />
+        <activity android:name=".activity.home.FangAnShejiActivity" />
+        <activity android:name=".activity.home.FangAnJieGouActivity" />
+        <activity android:name=".activity.home.FangAnCaiPingActivity" />
+        <activity android:name=".activity.home.FangAnShouHuiActivity" />
+        <activity android:name=".activity.home.FangAnSUMoXingActivity" />
+        <activity android:name=".activity.home.FangAnXieyiActivity" />
+        <activity android:name=".activity.home.FangAnXiaoGuoActivity" />
+        <activity android:name=".activity.home.FangAnShiGongActivity" />
+        <activity android:name=".activity.home.HeTongImageActivity" />
+        <activity android:name=".activity.home.KeHuLiangFangliangfangActivity" />
+        <activity android:name=".activity.home.KeHuLiangFangXuQiuActivity" />
+        <activity android:name=".activity.home.SheJiShiActivity" />
+        <activity android:name=".activity.home.ShouCangActivity" />
+        <activity android:name=".activity.home.FangAnPingJiaActivity" />
+        <activity android:name=".activity.News_Wab_Activity" />
+        <activity android:name=".activity.JiaoLiuActivity" />
+        <activity android:name=".activity.NewsShouSuoActivity" />
+        <activity android:name=".activity.ShouHouLiShiActivity" />
+        <activity android:name=".activity.HuanRenLiShiActivity" />
+        <activity android:name=".activity.HeZuoTiJiaoActivity" />
+        <activity android:name=".zbar.CaptureActivity" />
+        <activity android:name=".activity.MoreHomeActivity" />
+        <activity android:name=".activity.ProIMWebActivity" />
+        <activity android:name=".activity.home.CompanyActivity" />
+        <activity android:name=".activity.AddCustomerActivity" />
+        <activity android:name=".activity.CustomerMangerActivity" />
+        <activity android:name=".activity.JuBuWeiXiuActivity" />
+        <activity android:name=".activity.ChuZuActivity" />
+        <activity android:name=".activity.ShareActivity" />
+        <activity android:name=".activity.FangandetailActivity" />
     </application>
 
 </manifest>

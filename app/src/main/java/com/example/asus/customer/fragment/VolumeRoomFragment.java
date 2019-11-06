@@ -54,6 +54,7 @@ import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by asus on 2018/5/26.
+ * 量房
  */
 
 public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implements ProcessContract.View {
@@ -104,7 +105,7 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
 
     @Override
     protected void FragmentInitData() {
-        tvTitle.setText("项目-量房");
+
         photoList = new ArrayList<>();
         CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(getContext(), 2);
         linearLayoutManager.setScrollEnabled(false);
@@ -136,18 +137,10 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         });
     }
 
+    // 获取初始化数据
     private void initdata() {
-
         mPresenter.volumeRoomPhooto(App.orderNo);
         mPresenter.getProgssData(App.orderNo);
-     //   mPresenter.getOptimizationBean();
-//
-//        if (App.starts.equals("1")) {
-//            xinxi.setVisibility(View.GONE);
-//        } else if (App.starts.equals("2")) {
-//
-//        }
-
     }
 
     @Override
@@ -183,11 +176,22 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         dismissLoading();
     }
 
+    /**
+     * 获取数据成功回调
+     * @param bodyBean
+     */
     @Override
     public void getProgssData(ProgssInfo.BodyBean bodyBean) {
 
         if (null == bodyBean) {
         } else {
+            String ci_clientName = bodyBean.getBaseInformation().getCi_ClientName();
+            if(ci_clientName.length()>4){
+                String substring = ci_clientName.substring(0, 4);
+                tvTitle.setText(substring +"-"+ "量房");
+            }else {
+                tvTitle.setText(ci_clientName +"-"+ "量房");
+            }
             ci_clientName = bodyBean.getBaseInformation().getCi_ClientName();
             App.projectName=bodyBean.getBaseInformation().getCi_ClientName();
             String ca_transactionType = bodyBean.getHousingResourcesInformation().getCa_HousingType();
@@ -233,6 +237,10 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
 
     }
 
+    /**
+     * 量房照片数据
+     * @param mlist
+     */
     @Override
     public void volumeRoomPhooto(List<PhotoDetailsBean> mlist) {
         this.mlist.clear();
@@ -245,6 +253,10 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         recyViewAdapter.notifyDataSetChanged();
     }
 
+    /**
+     *最优数据
+     * @param bodyBean
+     */
     @Override
     public void getOptimizationBean(OptimizationBean bodyBean) {
         body = bodyBean.getBody();
@@ -259,6 +271,10 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         this.bodyBean = bodyBean;
     }
 
+    /**
+     * 推荐数据
+     * @param bean
+     */
     @Override
     public void getRecommendData(RecommendBean bean) {
         List<RecommendBean.BodyBean> body = bean.getBody();
@@ -273,6 +289,9 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         this.bean = bean;
     }
 
+    /**
+     * 解除butterknife绑定
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -294,6 +313,12 @@ public class VolumeRoomFragment extends BaseFragment<ProcessPresenter> implement
         }
     }
 
+    /**
+     * 扫描二维码的回调
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

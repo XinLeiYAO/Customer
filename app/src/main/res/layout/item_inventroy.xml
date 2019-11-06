@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="horizontal">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:textColor="#FF34393F"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_quantity"
+            android:textColor="#FF34393F"
+            android:text="赵总"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/ivImage"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_desc"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/ivImage"
+            android:textColor="#FFA3A5A8"
+            android:text="有效"
+            android:layout_marginLeft="5dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_desc"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@+id/tv_volume"
+            android:layout_toRightOf="@+id/tv1"
+            android:layout_marginLeft="5dp"
+            android:textColor="#FFA3A5A8"
+            android:text="已接通"
+            android:textSize="12sp" />
+     <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_volume"
+            android:layout_toRightOf="@+id/tv1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="22dp"
+            android:textColor="#FFA3A5A8"
+            android:text="（123456789）"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_detail"
+            android:layout_toLeftOf="@+id/ivPhone"
+            android:textColor="#FFA3A5A8"
+            android:text="2019.11.1 9:15"
+            android:paddingRight="10dp"
+            android:textSize="12sp" />
+        <ImageView
+            android:id="@+id/ivPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="#FFF55030"
+        android:gravity="center"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="删除"
+        android:textColor="#FFFFFFFF"
+        android:textSize="14sp" />
+</LinearLayout>

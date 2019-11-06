@@ -16,14 +16,14 @@ public class LogoModel implements LogoContract.Model {
     @Override
     public Observable<String> landLogin(String cardNo, String password, String vCode, String appId) {
         return ApiEngine.getInstance().getRsApiService()
-                .getAppLogin(cardNo,password,vCode,appId)
+                .getAppLogin(cardNo, password, vCode, appId)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
     @Override
     public Observable<String> tokenLogin(String cardNo, String token) {
         return ApiEngine.getInstance().getRsApiService()
-                .getLoginUserInfo(cardNo,token)
+                .getLoginUserInfo(cardNo, token)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
@@ -31,6 +31,27 @@ public class LogoModel implements LogoContract.Model {
     public Observable<String> getOddNumData(String appid) {
         return ApiEngine.getInstance().getRsApiService()
                 .getCustomerProjectNoByAppId(appid)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
+    @Override
+    public Observable<String> getVersionInfo(int version) {
+        return ApiEngine.getInstance().getRsApiService()
+                .getVersionInfo(version, 4)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
+    @Override
+    public Observable<String> getOddNumData2(String appid) {
+        return ApiEngine.getInstance().getRsApiService()
+                .getCustomerProjectNoByAppId2(appid)
+                .compose(RxSchedulers.<String>switchThread());
+    }
+
+    @Override
+    public Observable<String> getAdData(String id, String cardNo) {
+        return ApiEngine.getInstance().getRsApiService()
+                .getAdData(id, cardNo)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

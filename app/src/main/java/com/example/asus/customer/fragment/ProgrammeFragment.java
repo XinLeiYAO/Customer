@@ -49,6 +49,8 @@ import static com.example.asus.customer.commons.App.body;
 
 /**
  * Created by asus on 2018/5/26.
+ *
+ * 项目-方案
  */
 
 public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements CurrentContract.View {
@@ -94,6 +96,9 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
         });
     }
 
+    /**
+     * 初始化数据
+     */
     private void initData() {
         mPresenter.loadHomedata(App.orderNo);
         mPresenter.loadDesignDescription(App.orderNo);
@@ -118,23 +123,21 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.See_more:
-                if (body.size()==0) {
+                if (body.size() == 0) {
                     Toast.makeText(getContext(), "数据为空", Toast.LENGTH_SHORT).show();
                 } else {
-                       if(bean.getBody()!=null) {
-
-                           Intent intent = new Intent(getContext(), FindActivity.class);
-                           intent.putExtra("case", bean);
-                           intent.putExtra("name",ci_clientName);
-                           startActivity(intent);
-                       }else {
-                           Toast.makeText(getContext(), "数据为空", Toast.LENGTH_SHORT).show();
-                       }
+                    if (bean.getBody() != null) {
+                        Intent intent = new Intent(getContext(), FindActivity.class);
+                        intent.putExtra("case", bean);
+                        intent.putExtra("name", ci_clientName);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getContext(), "数据为空", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
             case R.id.excellent_one:
                 if (body.size() == 1) {
-
 
                     String projectId = bean.getBody().get(0).getProjectId();
                     startActivity(new Intent(getContext(), FindMoreActivity.class).putExtra("projectId", projectId));
@@ -173,6 +176,10 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
         dismissLoading();
     }
 
+    /**
+     * 获取当前数据成功回调
+     * @param Body
+     */
     @Override
     public void getCurrentData(Picture.BodyBean Body) {
         List<Picture.BodyBean.CpBean> cp = Body.getCp();
@@ -206,6 +213,7 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
     public void loadDesignDescription(DesignInfo.BodyBean bodyBean) {
         if (null != bodyBean) {
             DesignDescription.setText(bodyBean.getProjectBrief());
+
         }
     }
 
@@ -214,10 +222,20 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
 
     }
 
+    /**
+     * 获取 数据 成功回调
+     * @param bodyBean
+     */
     @Override
     public void getProgssData(ProgssInfo.BodyBean bodyBean) {
         ci_clientName = bodyBean.getBaseInformation().getCi_ClientName();
-        App.projectName=bodyBean.getBaseInformation().getCi_ClientName();
+        App.projectName = bodyBean.getBaseInformation().getCi_ClientName();
+        if (ci_clientName.length() > 4) {
+            String substring = ci_clientName.substring(0, 4);
+            tvTitle.setText(substring + "-" + "方案");
+        } else {
+            tvTitle.setText(ci_clientName + "-" + "方案");
+        }
     }
 
     @Override
@@ -238,6 +256,9 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
 
     }
 
+    /**
+     * 解除绑定
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -246,6 +267,9 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
 
     private static final int REQ_CODE_PERMISSION = 0x1111;
 
+    /**
+     * 请求全选
+     */
     private void QRCodeScan() {//6.0以上的手机需要处理权限
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             // Do not have the permission of camera, request it.
@@ -256,6 +280,12 @@ public class ProgrammeFragment extends BaseFragment<CurrentPresenter> implements
         }
     }
 
+    /**
+     * 扫描返回的数据
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

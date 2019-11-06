@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="您的意向"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="出租"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="求租"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="租住类型"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <com.example.asus.customer.weight.FlowRadioGroup
+        android:id="@+id/radiogroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="住宅"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="别墅"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb5"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="写字楼"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb6"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="商铺"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb7"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="仓库"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rb8"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/select_btn_bottom_bg"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="厂房"
+            android:textColor="@color/select_text_bottom"
+            android:textSize="14sp" />
+
+    </com.example.asus.customer.weight.FlowRadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="15dp"
+        >
+        <Button
+            android:id="@+id/btnDilog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/shape_btn_bottom_normal"
+            android:text="确定"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

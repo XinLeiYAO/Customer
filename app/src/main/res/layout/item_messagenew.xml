@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="150px"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_margin="8px" />
+
+            <TextView
+                android:id="@+id/tv_msgnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="90px"
+                android:layout_marginTop="20px"
+                android:background="@mipmap/xiaoxi_1"
+                android:gravity="center"
+                android:padding="2px"
+                android:text="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_4"
+                android:visibility="gone" />
+
+            <!--  <FrameLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true">
+
+                  <ImageView
+                      android:id="@+id/iv_img"
+                      android:layout_width="100px"
+                      android:layout_height="100px"
+                      android:layout_gravity="center"
+                      android:layout_margin="8px" />
+
+                  <TextView
+                      android:id="@+id/tv_msgnum"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="right"
+                      android:background="@mipmap/xiaoxi_1"
+                      android:gravity="center"
+                      android:padding="2px"
+                      android:text=""
+                      android:textColor="@color/colorWhite"
+                      android:textSize="@dimen/text_size_4"
+                      android:visibility="visible" />
+              </FrameLayout>-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="30px"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_title"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20px"
+                android:text=""
+                android:textSize="@dimen/text_size_m" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_title"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/tv_title"
+                android:layout_marginBottom="30px"
+                android:layout_marginRight="20px"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="@dimen/text_size_8" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2px"
+        android:layout_marginLeft="30px"
+        android:background="#ededed" />
+
+</LinearLayout>

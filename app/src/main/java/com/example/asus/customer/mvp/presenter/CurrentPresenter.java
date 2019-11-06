@@ -48,13 +48,12 @@ public class CurrentPresenter  extends CurrentContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("tag",s);
                         Picture picture = JSONUtils.toObject(s, Picture.class);
                         if(picture.getStatusCode()==0){
                             mView.getCurrentData(picture.getBody());
@@ -83,13 +82,12 @@ public class CurrentPresenter  extends CurrentContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("tag",s);
                         DesignInfo picture = JSONUtils.toObject(s, DesignInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.loadDesignDescription(picture.getBody());
@@ -124,7 +122,6 @@ public class CurrentPresenter  extends CurrentContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("bug",s);
                         CurreerPhotoDataBean picture = JSONUtils.toObject(s, CurreerPhotoDataBean.class);
                         if(picture.getStatusCode()==0){
                             mView.loadCurreerPhotoData(picture.getBody());
@@ -153,13 +150,12 @@ public class CurrentPresenter  extends CurrentContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("ssss",s);
                         ProgssInfo picture = JSONUtils.toObject(s, ProgssInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.getProgssData(picture.getBody());
@@ -196,7 +192,6 @@ public class CurrentPresenter  extends CurrentContract.Presenter{
                     @Override
                     public void onNext(String s) {
 
-                        Log.e("find",s);
                         RecommendBean picture = JSONUtils.toObject(s, RecommendBean.class);
                         if(picture.getStatusCode()==0){
                             mView.getRecommendData(picture);

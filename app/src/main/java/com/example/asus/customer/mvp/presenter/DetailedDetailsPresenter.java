@@ -46,14 +46,13 @@ public class DetailedDetailsPresenter extends DetailedDetailsContract.Presenter 
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG,e.getMessage());
+//                        Log.e(TAG,e.getMessage());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
 
-                        Log.e("tag",s);
                         List<PhotoDetailsBean> mlist= new Gson().fromJson(s, new TypeToken<List<PhotoDetailsBean>>() {
                         }.getType());
                         mView.volumeRoomPhooto(mlist);

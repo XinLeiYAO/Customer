@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="120px"
+    android:layout_marginTop="20px"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="施"
+            android:textColor="@color/text_black"
+            android:textSize="28px"
+            android:gravity="center"
+            android:background="@drawable/text_circle_green"
+            />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20px"
+            >
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设计-效果图-尾款"
+                android:textSize="28px"
+                android:textColor="@color/text_black"
+                />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05-09   15.30"
+                android:textSize="26px"
+                android:layout_marginTop="10px"
+                android:textColor="@color/colorGray"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_black"
+            android:textSize="28px"
+            android:text="-2355"
+            android:gravity="center|right"
+            android:layout_marginRight="30px"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10px"
+        android:background="@color/colorBG"/>
+
+</LinearLayout>

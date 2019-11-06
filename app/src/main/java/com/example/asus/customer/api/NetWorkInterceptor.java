@@ -1,6 +1,10 @@
 package com.example.asus.customer.api;
 
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.webkit.WebSettings;
+
 import com.example.asus.customer.commons.App;
 import com.example.asus.customer.commons.utils.NetUtil;
 
@@ -18,6 +22,7 @@ import okhttp3.Response;
 
 public class NetWorkInterceptor implements Interceptor {
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public Response intercept(Chain chain) throws IOException {
 
@@ -29,6 +34,9 @@ public class NetWorkInterceptor implements Interceptor {
                     .cacheControl(CacheControl.FORCE_CACHE)
                     .build();
         }
+        request = request.newBuilder()
+                .removeHeader("User-Agent")
+                .addHeader("User-Agent", getUserAgent()).build();
 
         Response response = chain.proceed(request);
 
@@ -56,4 +64,26 @@ public class NetWorkInterceptor implements Interceptor {
         return cacheResponse;
     }
 
+    private static String getUserAgent() {
+        String userAgent = "";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            try {
+                userAgent = WebSettings.getDefaultUserAgent(App.getContext());
+            } catch (Exception e) {
+                userAgent = System.getProperty("http.agent");
+            }
+        } else {
+            userAgent = System.getProperty("http.agent");
+        }
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0, length = userAgent.length(); i < length; i++) {
+            char c = userAgent.charAt(i);
+            if (c <= '\u001f' || c >= '\u007f') {
+                sb.append(String.format("\\u%04x", (int) c));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
 }

@@ -50,7 +50,6 @@ public class  FindPresenter  extends FindContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("ssss",s);
                         FindInfo picture = JSONUtils.toObject(s, FindInfo.class);
                         if(picture.getStatusCode()==0){
                             mView.getProgssData(picture.getBody());
@@ -90,7 +89,6 @@ public class  FindPresenter  extends FindContract.Presenter{
 
                         FindInformationBean picture = JSONUtils.toObject(s, FindInformationBean.class);
                         if(picture.getStatusCode()==0){
-                            Log.e("find",s);
                             mView.getfindData(picture.getBody());
                         }else {
                             mView.showMessage(picture.getStatusMsg());
@@ -123,7 +121,6 @@ public class  FindPresenter  extends FindContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("ssss",s);
                         ProjectBean picture = JSONUtils.toObject(s, ProjectBean.class);
                         if(picture.getStatusCode()==0){
                             mView.getUpDataProject();

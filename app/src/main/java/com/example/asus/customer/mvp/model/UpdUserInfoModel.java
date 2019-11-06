@@ -28,17 +28,27 @@ public class UpdUserInfoModel implements UpdUserInfoContract.Model {
     }
 
     @Override
-    public Observable<String> upHeaderPicture(String token, String cardNo, String picturePath) {
+    public Observable<String> upHeaderPicture(String type, String cardNo, String imgUrl) {
 
-        //将照片路径转换为File对象
-        File file = new File(picturePath);
-        //创建RequestBody ,用于Retrofit2.0上传照片
-        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        // MultipartBody.Part  和后端约定好Key，这里的partName是用image
-        MultipartBody.Part body = MultipartBody.Part.createFormData("file_stream", file.getName(), requestFile);
-        Log.e("tag",body.toString());
+//        //将照片路径转换为File对象
+//        File file = new File(picturePath);
+//        //创建RequestBody ,用于Retrofit2.0上传照片
+//        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+//        // MultipartBody.Part  和后端约定好Key，这里的partName是用image
+//        MultipartBody.Part body = MultipartBody.Part.createFormData("file_stream", file.getName(), requestFile);
+//        Log.e("tag",body.toString());
         return ApiEngine.getInstance().getRsApiService()
-                .upHeaderPicture(token, cardNo, body)
+                .upHeaderPicture(imgUrl, cardNo, type);
+    }
+
+    /**
+     * 用于获取初始化OSS的key、id等信息
+     * @return
+     */
+    @Override
+    public Observable<String> initOss() {
+        return ApiEngine.getInstance().getOssData()//待处理
+                .getOssData()
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

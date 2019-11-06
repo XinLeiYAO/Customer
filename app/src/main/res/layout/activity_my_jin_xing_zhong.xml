@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MyJinXingZhongActivity">
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:text="进行中:"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/finishTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:gravity="right"
+                        android:text="预计完成时间:"
+                        android:textColor="@color/text_black"
+                        android:textSize="30px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="30px"
+                    android:layout_marginRight="30px"
+                    android:background="@drawable/border_circle"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginRight="20px"
+                        android:text="高效的沟通桥梁:"
+                        android:textColor="@color/text_black"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:text="手绘是将设计灵感与需求清晰化，将您的想法与设计思呈现在眼前"
+                        android:textColor="@color/text_black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="30px"
+                        android:layout_marginRight="20px"
+                        android:text="设计师基本功:"
+                        android:textColor="@color/text_black"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:layout_marginBottom="40px"
+                        android:text="免费修改，改到您满意是极差的服务，高效的理解，扎实的基本功，前卫的设计，高度打造您想象的空间，不浪费您的时间，是设计师对您的最基本的尊重。"
+                        android:textColor="@color/text_black"
+                        android:textSize="28px" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350px"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/banner_icon" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/zhidian"
+            android:layout_width="150px"
+            android:layout_height="70px"
+            android:layout_marginTop="50px"
+            android:background="@drawable/lan"
+            android:text="致电"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20px"
+            android:textSize="30px"
+            android:textColor="#fff" />
+    </RelativeLayout>
+</LinearLayout>

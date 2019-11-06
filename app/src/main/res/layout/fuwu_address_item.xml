@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginTop="20px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:background="@color/colorWhite"
+        >
+
+        <LinearLayout
+            android:id="@+id/llItem"
+            android:layout_width="0px"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20px"
+                android:layout_marginLeft="15px"
+                >
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三"
+                    android:textSize="24px"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/tvUserPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16610015656"
+                    android:textSize="24px"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20px"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20px"
+                android:layout_marginBottom="20px"
+                android:layout_marginLeft="15px"
+                >
+
+                <TextView
+                    android:id="@+id/tvSitetext"
+                    android:layout_width="0px"
+                    android:layout_weight="8"
+                    android:layout_height="wrap_content"
+                    android:text="河北省廊坊市洞庭县呼和浩特新巴尔虎右旗奶子营村四组80号"
+                    android:textSize="24px"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    />
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="60px"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:background="@color/colorBG"
+            android:layout_gravity="center_vertical"
+            />
+
+
+        <TextView
+            android:id="@+id/tvUpdatesite"
+            android:layout_width="0px"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="编辑"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="32px"
+            android:textColor="@color/black"
+
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

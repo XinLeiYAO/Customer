@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.QianYueActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+
+    <RelativeLayout
+        android:id="@+id/kehu_home_hezuo_hetong_lin"
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/view2"
+            android:layout_width="48px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="37px"
+            android:src="@mipmap/hezuo_hetong" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@id/view2"
+            android:text="施工合同"
+            android:textColor="#333333"
+            android:textSize="32px" />
+
+        <FrameLayout
+            android:id="@+id/kehu_home_yusuan_gongyi_icgo"
+            android:layout_width="60px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px">
+
+            <ImageView
+                android:layout_width="15px"
+                android:layout_height="30px"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_go" />
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/hetong"
+            android:layout_width="15px"
+            android:layout_height="15px"
+            android:background="@mipmap/xiaoxi_1"
+            android:layout_toLeftOf="@+id/kehu_home_yusuan_gongyi_icgo"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="110px"
+        android:layout_marginRight="30px"
+        android:layout_centerVertical="true"
+        android:background="#ededed" />
+    <RelativeLayout
+        android:id="@+id/kehu_home_hezuo_sheji_hetong_lin"
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/view"
+            android:layout_width="48px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="37px"
+            android:src="@mipmap/fangan_xieyi" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@id/view"
+            android:text="设计合同"
+            android:textColor="#333333"
+            android:textSize="32px" />
+
+        <FrameLayout
+            android:id="@+id/kehu_home_yusuan_gongyi_icgo1"
+            android:layout_width="60px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px">
+
+            <ImageView
+                android:layout_width="15px"
+                android:layout_height="30px"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_go" />
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/hetong1"
+            android:layout_width="15px"
+            android:layout_height="15px"
+            android:background="@mipmap/xiaoxi_1"
+            android:layout_toLeftOf="@+id/kehu_home_yusuan_gongyi_icgo1"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="110px"
+        android:layout_marginRight="30px"
+        android:layout_centerVertical="true"
+        android:background="#ededed" />
+    <RelativeLayout
+        android:id="@+id/kehu_home_hezuo_hetong_image_lin"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/view3"
+            android:layout_width="48px"
+            android:layout_height="40px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="37px"
+            android:src="@mipmap/hezuo_hetong_image" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@id/view3"
+            android:text="合同照片"
+            android:textColor="#333333"
+            android:textSize="32px" />
+
+        <FrameLayout
+            android:id="@+id/kehu_home_yusuan_baojia2_icgo"
+            android:layout_width="60px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px">
+
+            <ImageView
+                android:layout_width="15px"
+                android:layout_height="30px"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_go" />
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/hetong_zhaopian"
+            android:layout_width="15px"
+            android:layout_height="15px"
+            android:background="@mipmap/xiaoxi_1"
+            android:layout_toLeftOf="@+id/kehu_home_yusuan_baojia2_icgo"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="110px"
+        android:layout_marginRight="30px"
+        android:layout_centerVertical="true"
+        android:background="#ededed" />
+
+</LinearLayout>

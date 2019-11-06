@@ -1,6 +1,7 @@
 package com.example.asus.customer.commons.utils;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.widget.Toast;
 
 /**
@@ -15,7 +16,9 @@ public class ShowUtils {
      * @param str
      */
     public static void Toastshort(Context context,String str) {
-        Toast.makeText(context,str,Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(context, str, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 
     /**
@@ -24,6 +27,8 @@ public class ShowUtils {
      * @param str
      */
     public static void Toastlong(Context context,String str) {
-        Toast.makeText(context,str,Toast.LENGTH_LONG).show();
+        Toast toast = Toast.makeText(context, str, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
     }
 }

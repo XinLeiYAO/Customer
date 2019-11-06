@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DingDanIngActivity">
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <ImageView
+        android:id="@+id/no_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/kehu_home_wuneirong"
+        android:visibility="gone"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="20px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_circle"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="20px"
+                    android:layout_marginRight="20px">
+
+                    <TextView
+                        android:id="@+id/zhangdanId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单编号："
+                        android:textColor="@color/black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="0dp"
+                        android:text="进行中"
+                        android:textColor="#33cc66"
+                        android:textSize="28px" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:paddingBottom="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="40px"
+                        android:layout_marginRight="20px"
+                        android:text="高效的沟通桥梁:"
+                        android:textColor="@color/text_black"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:text="手绘是将设计灵感与需求清晰化，将您的想法与设计思呈现在眼前"
+                        android:textColor="@color/text_black"
+                        android:textSize="28px" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="30px"
+                        android:layout_marginRight="20px"
+                        android:text="设计师基本功:"
+                        android:textColor="@color/text_black"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginRight="20px"
+                        android:layout_marginBottom="40px"
+                        android:text="免费修改，改到您满意是极差的服务，高效的理解，扎实的基本功，前卫的设计，高度打造您想象的空间，不浪费您的时间，是设计师对您的最基本的尊重。"
+                        android:textColor="@color/text_black"
+                        android:textSize="28px" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350px"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/banner_icon" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90px"
+                android:layout_marginTop="30px"
+                android:background="@drawable/border_circle"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/tell_kefu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        >
+
+                        <ImageView
+                            android:id="@+id/kefu_img"
+                            android:layout_width="60px"
+                            android:layout_height="60px"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/pingjia_kefu" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20px"
+                            android:layout_toRightOf="@+id/kefu_img"
+                            android:gravity="center"
+                            android:text="联系客服"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/text_black"
+                            android:textSize="28px" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/colorBG" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:id="@+id/tell_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        >
+
+                        <ImageView
+                            android:id="@+id/dianhua_img"
+                            android:layout_width="60px"
+                            android:layout_height="60px"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/pingjia_phone" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20px"
+                            android:layout_toRightOf="@+id/dianhua_img"
+                            android:gravity="center"
+                            android:text="拨打电话"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/text_black"
+                            android:textSize="28px" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

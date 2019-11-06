@@ -5,9 +5,12 @@ import com.example.asus.customer.commons.base.BasePresenter;
 import com.example.asus.customer.commons.base.BaseView;
 import com.example.asus.customer.entity.FindInfo;
 import com.example.asus.customer.entity.FindInformationBean;
+import com.example.asus.customer.entity.ObjectDataBean;
 import com.example.asus.customer.entity.ProjectBean;
+import com.example.asus.customer.entity.VersionInfo;
 
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 
@@ -26,7 +29,17 @@ public interface NjjContract {
 
         void getProjectStatus(ProjectBean projectBean);
 
+        void getLoginTime();
+
+        void getLoginTimeErro(String erro);
+
+//        void getObjectData(ObjectDataBean objectDataBean);
+//
+//        void getObjectDataErro(String erro);
+
+
     }
+
     interface Model extends BaseModel {
         Observable<String> getProjectStatus(
                 String rwdid
@@ -34,10 +47,25 @@ public interface NjjContract {
 
         );
 
+        Observable<String> getLoginTime(
+                String rwdid
+        );
+
+//        Observable<String> getObjectData(
+//                Map<String, String> map
+//        );
     }
+
     abstract class Presenter extends BasePresenter<NjjContract.View, NjjContract.Model> {
         public abstract void getProjectStatus(
                 String rwdid
         );
+
+        public abstract void getLoginTime(
+                String rwdid
+        );
+//        public abstract void getObjectData(
+//                Map<String, String> map
+//        );
     }
 }

@@ -41,6 +41,19 @@ public interface NewsListContract {
                 int pageIndex,
                 int pageSize
         );
+        //cardNo=01012167
+        //appId=0c5c9c88-5775-4a70-bafd-849115ef4d94
+        //postId=8
+        //page=1
+        //rows=10
+
+        Observable<String> getNewsList1(
+                String cardNo,
+                String appId,
+                String postId,
+                String page,
+                String rows
+        );
 
         Observable<String> getNewsListLoadMore(
                 String cardNo,
@@ -64,6 +77,13 @@ public interface NewsListContract {
                 int pageSize
         );
 
+
+        public abstract void getNewsList1(
+                String cardNo,
+                String appId,
+                String postId,
+                String page,
+                String rows);
     }
 
 }

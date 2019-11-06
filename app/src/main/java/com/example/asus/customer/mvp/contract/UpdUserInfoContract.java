@@ -5,6 +5,8 @@ package com.example.asus.customer.mvp.contract;
 import com.example.asus.customer.commons.base.BaseModel;
 import com.example.asus.customer.commons.base.BasePresenter;
 import com.example.asus.customer.commons.base.BaseView;
+import com.example.asus.customer.entity.ImgBean;
+import com.example.asus.customer.entity.OSSBean;
 
 import rx.Observable;
 
@@ -30,6 +32,9 @@ public interface UpdUserInfoContract {
 
         void hideDialog();
 
+        void OssData(OSSBean ossBean);//初始化oss的回调
+
+        void imageIconData(ImgBean imgBean);
     }
 
     interface Model extends BaseModel {
@@ -41,10 +46,11 @@ public interface UpdUserInfoContract {
         );
 
         Observable<String> upHeaderPicture(
-                String token,
+                String type,
                 String cardNo,
-                String picturePath
+                String imgUrl
         );
+        Observable<String> initOss();//获取用于初始化Oss的key、id等信息
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
@@ -56,10 +62,11 @@ public interface UpdUserInfoContract {
         );
 
         public abstract void upHeaderPicture(
-                String token,
+                String type,
                 String cardNo,
-                String picturePath
+                String imgUrl
         );
+        public abstract void getOssData();//获取用于初始化Oss的key、id等信息
     }
 
 }

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="88px"
-    android:background="@color/colorPrimaryDark">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="42px"
+    android:background="@color/colorWhite">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="88px"
+      android:background="@color/colorWhite">
     <ImageView
         android:id="@+id/iv_back"
         android:layout_width="54px"
@@ -11,19 +16,19 @@
         android:layout_marginLeft="24px"
         android:gravity="center"
         android:paddingRight="20px"
-        android:src="@mipmap/back_icon" />
+        android:src="@mipmap/back_icon_new" />
 
-    <Button
+    <TextView
         android:id="@+id/btn_submit"
         android:layout_width="100px"
         android:layout_height="54px"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="24px"
-        android:textSize="@dimen/text_size_s"
-        android:textColor="@color/colorWhite"
-        android:text="提交"
-        android:background="@drawable/selector_btn_sub"/>
+        android:textSize="36px"
+        android:textColor="@color/black"
+        android:text="保存"
+        />
 
     <TextView
         android:id="@+id/tv_title"
@@ -36,7 +41,7 @@
         android:gravity="center"
         android:singleLine="true"
         android:text="注册"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/black"
         android:textSize="36px" />
 
     <View
@@ -44,5 +49,5 @@
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
         android:background="@color/colorLine" />
-
-</RelativeLayout>
+  </RelativeLayout>
+</LinearLayout>

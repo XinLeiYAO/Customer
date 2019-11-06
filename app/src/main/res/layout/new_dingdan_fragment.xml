@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_header_layout_kehu" />
+
+    <LinearLayout
+        android:id="@+id/tuzhi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/gongyingshang_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="供应商"
+            android:gravity="center"
+            android:textSize="28px"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:visibility="gone"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/quanbu_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="全部"
+            android:gravity="center"
+            android:textSize="28px"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/daipeisong_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="待配送"
+            android:gravity="center"
+            android:textSize="28px"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:visibility="gone"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/jinxingzhong_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="进行中"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:gravity="center"
+            android:textSize="28px"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/daiqueren_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="待确认"
+            android:gravity="center"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:textSize="28px"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/daipingjia_text"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="待评价"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:gravity="center"
+            android:textSize="28px"
+            android:textColor="@color/text_black"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0px"
+        ></RelativeLayout>
+
+</LinearLayout>

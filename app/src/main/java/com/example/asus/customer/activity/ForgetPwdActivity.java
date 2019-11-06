@@ -1,8 +1,13 @@
 package com.example.asus.customer.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +24,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 修改密码
+ */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implements ForgetPwdContract.View {
 
     @Bind(R.id.tv_title)
@@ -28,7 +36,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
     @Bind(R.id.tv_old_password_line)
     TextView tvPhoneLine;
     @Bind(R.id.btn_verification_code)
-    DownTimerButton btnVerificationCode;
+    Button btnVerificationCode;
     @Bind(R.id.et_verification_code)
     EditText etVerificationCode;
     @Bind(R.id.tv_verification_code_line)
@@ -42,11 +50,13 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
     @Bind(R.id.tv_confirm_password_line)
     TextView tvConfirmPasswordLine;
 
-    public static final String TITLE = "忘记密码";
+    public static String TITLE = "找回密码";
     @Bind(R.id.iv_back)
     ImageView ivBack;
 
     private int type;
+    private String phone;
+    private String title;
 
     @Override
     public int getLayout() {
@@ -55,6 +65,15 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
 
     @Override
     public void initData() {
+        Intent intent = getIntent();
+        phone = intent.getStringExtra("phone");
+        title = intent.getStringExtra("title");
+        if(title != null){
+            TITLE = title;
+        }
+        if (!TextUtils.isEmpty(phone))
+            etPhoneNum.setText(phone);
+
         initIntent();
         initTitle();
         initLine();
@@ -62,15 +81,10 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
     }
 
     private void initIntent() {
-        //type = getIntent().getIntExtra(Constants.ACTION_TO_FORGET_PWD_TYPE, 0);
     }
 
     private void initTitle() {
-//        if (type == 0) {
-//            tvTitle.setText(TITLE);
-        // } else {
-        tvTitle.setText("忘记密码");
-        //}
+        tvTitle.setText(TITLE);
     }
 
     private void initLine() {
@@ -148,25 +162,26 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
                     showToast("请输入手机号");
                     return;
                 }
-                if (!StringUtils.isMobileNO(phone)) {
-                    showToast("请输入正确的手机号");
+                if (phone.length() != 11) {
+                    showToast("请输入正确的11位手机号");
                     return;
                 }
+                btnVerificationCode.setBackgroundResource(R.drawable.shape_btn_sub_un_enabled);
+                btnVerificationCode.setClickable(false);
+                btnVerificationCode.setEnabled(false);
+                handler.sendEmptyMessage(10);
                 mPresenter.getVCode(phone);
                 break;
             case R.id.btn_forget_password:
                 String phoneNum = etPhoneNum.getText().toString().trim();
                 String verificationCode = etVerificationCode.getText().toString().trim();
                 String newPassword = etNewPassword.getText().toString().trim();
-                String confirmPassword = etConfirmPassword.getText().toString().trim();
+//                String confirmPassword = etConfirmPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(phoneNum)) {
                     showToast("请输入手机号");
                     return;
                 }
-                if (!StringUtils.isMobileNO(phoneNum)) {
-                    showToast("请输入正确的手机号");
-                    return;
-                }
+
                 if (TextUtils.isEmpty(verificationCode)) {
                     showToast("请输入验证码");
                     return;
@@ -175,23 +190,34 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
                     showToast("请输入新密码");
                     return;
                 }
-                if (CheckPasswordUtil.checkPassword(confirmPassword)) {
-                    showToast("密码过于简单");
-                    return;
-                }
-                if (TextUtils.isEmpty(confirmPassword)) {
-                    showToast("请输入确认密码");
-                    return;
-                }
-                if (!newPassword.equals(confirmPassword)) {
-                    showToast("两次密码输入不一致");
-                    return;
-                }
+
                 //修改密码
                 mPresenter.updatePassword(phoneNum, newPassword, verificationCode);
                 break;
         }
     }
+
+    int time = 60;
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.what==10){
+                if(time>=0){
+                    btnVerificationCode.setText(time--+"");
+                    handler.sendEmptyMessageDelayed(10,1000);
+                }else{
+                    btnVerificationCode.setBackgroundResource(R.drawable.selector_btn_sub);
+                    btnVerificationCode.setText("获取验证码");
+                    btnVerificationCode.setClickable(true);
+                    btnVerificationCode.setEnabled(true);
+                    time = 60;
+                }
+            }
+
+        }
+    };
 
     @Override
     public void responseUpdatePassword() {
@@ -206,6 +232,11 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
 
     @Override
     public void responseVCodeError(String msg) {
+
+        btnVerificationCode.setBackgroundResource(R.drawable.selector_btn_sub);
+        btnVerificationCode.setText("获取验证码");
+        btnVerificationCode.setClickable(true);
+        btnVerificationCode.setEnabled(true);
         showToast(msg);
     }
 

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".activity.HomeZijiActivity">
+
+    <include layout="@layout/include_header_layout"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorBG" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="100px"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--基本信息-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/jibenMessageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:text="基本信息(上传即可获得200元)"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+                    <!--具体布局-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="具体布局"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <LinearLayout
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="15"
+                            android:gravity="right"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/edChu"
+                                android:layout_width="50px"
+                                android:maxWidth="80px"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60px"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:hint="？"
+                                android:inputType="number"
+                                android:textSize="26px" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="厨"
+                                android:textColor="@color/black"
+                                android:textSize="26px" />
+
+                            <EditText
+                                android:id="@+id/edWhu"
+                                android:layout_width="50px"
+                                android:maxWidth="80px"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60px"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:hint="？"
+                                android:inputType="number"
+                                android:textSize="26px" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="卫"
+                                android:textColor="@color/black"
+                                android:textSize="26px" />
+
+                            <EditText
+                                android:id="@+id/edYang"
+                                android:layout_width="50px"
+                                android:maxWidth="80px"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60px"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:hint="？"
+                                android:inputType="number"
+                                android:textSize="26px" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="阳台"
+                                android:textColor="@color/black"
+                                android:textSize="26px" />
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/ic_go" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+                    <!--意向风格-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="意向风格"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/tvStyle"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:gravity="right"
+                            android:text="请选择"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+
+                    <!--层高-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="层高"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <EditText
+                            android:id="@+id/edCengHight"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:inputType="number"
+                            android:hint="请输入层高(mm)"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG" />
+
+                <!--功能需求-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/gongnnegMessageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:text="功能需求（多选）(上传即可获得100元)"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/gongnnegRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></com.zhy.view.flowlayout.TagFlowLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG" />
+
+                <!--原始结构图-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/yuanshiMessageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:text="原始结构图(上传即可获得100元)"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/jiegouRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG" />
+
+                <!--屋顶照片-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wudingMessageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:text="屋顶照片(上传即可获得100元)"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/wudingRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorBG"
+                    android:gravity="center"
+                    android:text="继续录入可再享500元大礼"
+                    android:textColor="@color/colorGray"
+                    android:textSize="26px" />
+
+                <!--精准信息-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/jinzhunMessageTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20px"
+                        android:text="精准信息(完成后可得500元)"
+                        android:textColor="@color/black"
+                        android:textSize="26px" />
+
+                    <!--墙面-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="墙面"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/tvQiang"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:gravity="right"
+                            android:text="请选择"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+
+                    <!--吊顶-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="吊顶"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/tvDiao"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:gravity="right"
+                            android:text="请选择"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="20px"
+                        android:background="@color/colorBG" />
+
+                    <!--地面-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60px"
+                        android:layout_marginTop="20px"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="地面"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <TextView
+                            android:id="@+id/tvDi"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20px"
+                            android:layout_weight="15"
+                            android:gravity="right"
+                            android:text="请选择"
+                            android:textColor="@color/black"
+                            android:textSize="26px" />
+
+                        <ImageView
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@mipmap/ic_go" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnCommit"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="40px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/selector_btn_sub"
+            android:text="（已省0元）立即提交"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentBottom="true"
+            android:textSize="26px" />
+    </RelativeLayout>
+
+</LinearLayout>

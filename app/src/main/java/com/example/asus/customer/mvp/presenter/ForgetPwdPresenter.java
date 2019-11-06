@@ -41,7 +41,7 @@ public class ForgetPwdPresenter extends ForgetPwdContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG, "修改密码失败 = " + e.toString());
+//                        Log.e(TAG, "修改密码失败 = " + e.toString());
                         onCompleted();
                     }
 
@@ -69,7 +69,7 @@ public class ForgetPwdPresenter extends ForgetPwdContract.Presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e(TAG, "获取验证码失败 = " + e.toString());
+//                        Log.e(TAG, "获取验证码失败 = " + e.toString());
                         onCompleted();
                     }
 
